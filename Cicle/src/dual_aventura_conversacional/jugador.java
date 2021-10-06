@@ -8,12 +8,12 @@ public class jugador {
 	ArrayList<objecte> inventari = new ArrayList<objecte>();
 	int id_zona;
 	
-	
-	
-	
-	
-	
-	
+	public jugador(String nom, ArrayList<objecte> inventari, int id_zona) {
+		super();
+		this.nom = nom;
+		this.inventari = inventari;
+		this.id_zona = id_zona;
+	}
 	public String getNom() {
 		return nom;
 	}
@@ -35,19 +35,7 @@ public class jugador {
 	
 	
 	
-	
-	public jugador(String nom, ArrayList<objecte> inventari, int id_zona) {
-		super();
-		this.nom = nom;
-		this.inventari = new ArrayList <objecte> ();
-		this.id_zona = id_zona;
-	}
-	
-	
-	
-	
-	
-	public void afegiritems() 
+	public void afegiritemstest() 
 	{
 		
 		objecte espasa = new objecte(0, "Espasa", true);
@@ -65,8 +53,21 @@ public class jugador {
 	}
 	
 	
-	
+	public void printjugador() 
+	{
+		System.out.println(nom);
+		System.out.println(inventari);
+		System.out.println(id_zona);
+	}
 	
 	
 
 }
+
+
+
+
+
+
+
+
