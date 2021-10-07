@@ -21,9 +21,15 @@ public class main {
 	zona zonaabaix = new zona ("Abaix", "abaix", false, "centre", null, null, null, null);//2
 	zona zonadreta = new zona ("Dreta", "dreta", false, null, null, null, "centre", null);//3
 	zona zonaesquerra = new zona ("Esquerra", "esquerra", false, null, null, "centre", null, null);//4
-
+	
+	
+	herrero zonaherrero = new herrero ("herrero", "centre", false, "adalt", "abaix", "dreta", "esquerra", null, true);
+	
 	int zonaactual=0;
-	zona[] arrayzones = {zonacentre, zonaadalt, zonaabaix, zonadreta, zonaesquerra};
+	zona[] arrayzones = {zonacentre, zonaadalt, zonaabaix, zonadreta, zonaesquerra, zonaherrero};
+	
+	
+	
 	
 	//bucle principal
 	

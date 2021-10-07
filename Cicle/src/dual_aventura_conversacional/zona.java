@@ -81,17 +81,16 @@ public class zona {
 	
 
 	
-	
+	public boolean camilliure() {
+		
+		return true;
+	}
 	
 	
 	public void introzona() 
 	{
-		
-		
 		if (entrat == true) {System.out.println("Has entrat a " + nom + " Segona visita");}
-		else {System.out.println("Has entrat a " + nom + " Primera visita"); entrat = true;}
-		
-		
+		else {System.out.println("Has entrat a " + nom + " Primera visita"); entrat = true;}		
 	}
 	
 	
