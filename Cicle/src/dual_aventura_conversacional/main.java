@@ -16,18 +16,22 @@ public class main {
 	//player.printjugador();
 
 	//inicialitzar zones
-	zona zonacentre = new zona ("Centre", "centre", false, "adalt", "abaix", "dreta", "esquerra", null);//0
-	zona zonaadalt = new zona ("Adalt", "adalt", false, null, "centre", null, null, null);//1
-	zona zonaabaix = new zona ("Abaix", "abaix", false, "centre", null, null, null, null);//2
-	zona zonadreta = new zona ("Dreta", "dreta", false, null, null, null, "centre", null);//3
-	zona zonaesquerra = new zona ("Esquerra", "esquerra", false, null, null, "centre", null, null);//4
-	
-	
-	herrero zonaherrero = new herrero ("herrero", "centre", false, "adalt", "abaix", "dreta", "esquerra", null, true);
-	
 	int zonaactual=0;
-	zona[] arrayzones = {zonacentre, zonaadalt, zonaabaix, zonadreta, zonaesquerra, zonaherrero};
+	zona zona_bosque = new zona("Bosque", "zona_bosque", false, "zona_lago", "zona_cueva", "zona_pueblo", "zona_montaña", null) ;
+	montaña zona_montaña = new montaña("Base de la montaña", "zona_montaña", false, null, null, "zona_bosque", "zona_cima", null, false, "El guardian", false);
+	cima zona_cima = new cima("La cima", "zona_cima", false, null, null, "zona_montaña", null, null, false, false, false, false, 0, 0);
+	templo zona_templo = new templo("El templo", "zona_templo", false, null, "zona_pueblo", null, null, null, false);
+	pueblo zona_pueblo = new pueblo ("El pueblo", "zona_pueblo", false, "zona_templo", "zona_herrero", null, "zona_bosque", null);
+	herrero zona_herrero = new herrero("La herreria", "zona_herrero", false, "zona_pueblo", null, null, null, null, false);
+	cueva_esfinge zona_cueva = new cueva_esfinge("la cueva", "zona_cueva", false, "zona_bosque", null, "zona_espejo", "zona_grabado", null, false);
+	zona zona_grabado = new zona("zona con grabados", "zona_grabado", false, null, null, "zona_cueva", null, null);
+	cueva_espejo zona_espejo = new cueva_espejo("sala con las antorchas", "zona_espejo", false, null, null, null, "zona_cueva", null, false, null);
+	lago zona_lago = new lago("el lago", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, null, false, false, false, false);
+	torre_base zona_torre_base = new torre_base("la base de la torre", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, null);
+	torre_medio zona_torre_medio = new torre_medio("el medio de la torre", "zona_torre_medio", false, null, null, "zona_torre_cima", "zona_torre_base", null);
+	torre_cima zona_torre_cima = new torre_cima("la cuspide de la torre", "zona_torre_cima", false, null, null, null, "zona_torre_medio", null);
 	
+	zona[] arrayzones = {zona_bosque, zona_montaña, zona_cima, zona_templo, zona_pueblo, zona_herrero, zona_cueva, zona_grabado, zona_espejo, zona_lago, zona_torre_base, zona_torre_medio, zona_torre_cima};
 	
 	
 	
