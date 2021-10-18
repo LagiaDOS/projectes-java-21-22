@@ -59,6 +59,11 @@ public class cima extends zona {
 	}
 	
 	
-	
+	public boolean potmoure(montaña zona_montaña) {
+		return zona_montaña.espada_enseñada;
+	}
 
+	public void moviment_negat() 
+	{System.out.println("El cami a la cima esta tallat");}
+	
 }

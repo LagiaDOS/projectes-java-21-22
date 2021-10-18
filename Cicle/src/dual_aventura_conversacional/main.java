@@ -11,13 +11,21 @@ public class main {
 		
 	Scanner teclat = new Scanner(System.in);		
 		
+	ArrayList<objecte> inventari = new ArrayList<objecte>();
+	
 	// inicialitzar jugador
-	jugador player = new jugador("Jugadortest", null, 0);
+	jugador player = new jugador("Jugadortest", inventari , 0);
+	objecte espada = new objecte(1, "espasa", true);
+	player.inventari.add(espada);
 	//player.printjugador();
+	
+	
+	
+	
 
 	//inicialitzar zones
 	int zonaactual=0;
-	zona zona_bosque = new zona("Bosque", "zona_bosque", false, "zona_lago", "zona_cueva", "zona_pueblo", "zona_montaña", null) ;
+	bosque zona_bosque = new bosque("Bosque", "zona_bosque", false, "zona_lago", "zona_cueva", "zona_pueblo", "zona_montaña", null) ;
 	montaña zona_montaña = new montaña("Base de la montaña", "zona_montaña", false, null, null, "zona_bosque", "zona_cima", null, false, "El guardian", false);
 	cima zona_cima = new cima("La cima", "zona_cima", false, null, null, "zona_montaña", null, null, false, false, false, false, 0, 0);
 	templo zona_templo = new templo("El templo", "zona_templo", false, null, "zona_pueblo", null, null, null, false);
@@ -26,13 +34,12 @@ public class main {
 	cueva_esfinge zona_cueva = new cueva_esfinge("la cueva", "zona_cueva", false, "zona_bosque", null, "zona_espejo", "zona_grabado", null, false);
 	zona zona_grabado = new zona("zona con grabados", "zona_grabado", false, null, null, "zona_cueva", null, null);
 	cueva_espejo zona_espejo = new cueva_espejo("sala con las antorchas", "zona_espejo", false, null, null, null, "zona_cueva", null, false, null);
-	lago zona_lago = new lago("el lago", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, null, false, false, false, false);
+	lago zona_lago = new lago("el lago", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, null, false, false, true, false);
 	torre_base zona_torre_base = new torre_base("la base de la torre", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, null);
 	torre_medio zona_torre_medio = new torre_medio("el medio de la torre", "zona_torre_medio", false, null, null, "zona_torre_cima", "zona_torre_base", null);
 	torre_cima zona_torre_cima = new torre_cima("la cuspide de la torre", "zona_torre_cima", false, null, null, null, "zona_torre_medio", null);
 	
 	zona[] arrayzones = {zona_bosque, zona_montaña, zona_cima, zona_templo, zona_pueblo, zona_herrero, zona_cueva, zona_grabado, zona_espejo, zona_lago, zona_torre_base, zona_torre_medio, zona_torre_cima};
-	
 	
 	
 	//bucle principal
@@ -41,21 +48,53 @@ public class main {
 	zonaactual = 0;
 	
 	
+	//System.out.println("TEST DEL SWITCH");
+	int z = 0;
+	//System.out.println(check_pasar(z, arrayzones));
 	
 	
 	while (jugant == true) 
 	{
 		
-		System.out.println("La zona actual es: " + arrayzones[zonaactual].nom);
-		
+		//System.out.println("La zona actual es: " + arrayzones[zonaactual].nom);
+		//arrayzones[zonaactual].introzona();
 		//arrayzones[zonaactual].introzona();
 		//arrayzones[zonaactual].introzona();
 		//cambiar a una altre zona
 		//arrayzones[zonaactual].introzona();
 		//arrayzones[zonaactual].introzona();
+		int comanda = 3;
 		
+		switch (comanda){
+		
+		//parlar
+		case 1: break;
+		
+		
+		
+		// agafar/deixar items
+		case 3:
+
+			//tirar
+		if (player.inventari==null) {System.out.println("No tens res per tirar!");}	
+		if (player.inventari!=null) {System.out.println("que vols tirar?");}
+			
+		
+			//agafar
+		
+		
+		jugant = false;	
+		break;
+		
+		
+		//sistema de moviment
 		//introduir cambi de zona manual.
 
+		case 2: 
+		
+		
+		
+		
 		System.out.println("Introdueix a on vols anar:");
 		System.out.println("Adalt :   1");
 		System.out.println("Abaix :   2");
@@ -68,17 +107,20 @@ public class main {
 		
 		//System.out.println("cambi actual: " + cambi);
 		
-
+		
 		switch (cambi){
 		case 1: 
-			if(arrayzones[zonaactual].zona_adalt != null) 
+			if(arrayzones[zonaactual].zona_adalt != null ) 
 			{
 				for(int i = 0; i < arrayzones.length; i++){
 					if	(arrayzones[zonaactual].zona_adalt == arrayzones[i].id){
-						System.out.println("moure a la zona de adalt, que es " + arrayzones[i].id); 
-						zonaactual=i ; 
-						break;
-					}  
+						if (check_pasar(i, arrayzones)==true) {
+							System.out.println("moure a la zona de adalt, que es " + arrayzones[i].id); 
+							zonaactual=i ; 
+							break;
+						}else {arrayzones[i].moviment_negat();}
+					} 
+					
 				}
 			}else System.out.println("No pots anar alla.");
 			break; //adalt
@@ -88,11 +130,12 @@ public class main {
 			{
 				for(int i = 0; i < arrayzones.length; i++){
 					if(arrayzones[zonaactual].zona_abaix == arrayzones[i].id){
-						System.out.println("moure a la zona de abaix, que es " + arrayzones[i].id); 
-						zonaactual=i ; 
-						break;
-					} 
-				}
+						if (arrayzones[i].potmoure()==true) {
+							System.out.println("moure a la zona de abaix, que es " + arrayzones[i].id); 
+							zonaactual=i ; 
+							break;
+						}else {arrayzones[i].moviment_negat();}
+					} 				}
 			}else {System.out.println("No pots anar alla.");}
 			break; //abaix
 		
@@ -101,9 +144,11 @@ public class main {
 			{
 				for(int i = 0; i < arrayzones.length; i++){
 					if(arrayzones[zonaactual].zona_dreta == arrayzones[i].id){
-						System.out.println("moure a la zona de dreta, que es " + arrayzones[i].id);
-						zonaactual=i ;
-						break;
+						if (arrayzones[i].potmoure()==true) {
+							System.out.println("moure a la zona de dreta, que es " + arrayzones[i].id);
+							zonaactual=i ;
+							break;
+						}else {arrayzones[i].moviment_negat();}
 					}
 				}
 			}else {System.out.println("No pots anar alla.");}
@@ -113,31 +158,91 @@ public class main {
 			if(arrayzones[zonaactual].zona_esquerra != null){
 				for(int i = 0; i < arrayzones.length; i++){
 					if	(arrayzones[zonaactual].zona_esquerra == arrayzones[i].id){
-						System.out.println("moure a la zona de esquerra, que es " + arrayzones[i].id);
-						zonaactual=i ; 
-						break;
+						if (arrayzones[i].potmoure()==true) {
+							System.out.println("moure a la zona de esquerra, que es " + arrayzones[i].id);
+							zonaactual=i ; 
+							break;
+						}else {arrayzones[i].moviment_negat();}
 					} 
 				}
-			}else {System.out.println("No pots anar alla.");}
+			}else {System.out.println("No pots anar alla."); arrayzones[zonaactual].moviment_negat();}
 			break;//esquerra
 		default: jugant= false; break;}
 		
+		System.out.println(arrayzones[zonaactual].potmoure());
 		System.out.println();
 
+		}
+	break;
 	}
 	
 	
-	
-	
 	}
 
 
 
 
 
+public static boolean check_pasar(int z, zona[] arrayzones) {
+	
+//	zona_bosque, 	0, condicional
+//	zona_montaña, 	1, condicional
+//	zona_cima, 		2, condicional
+//	zona_templo,	3, true
+//	zona_pueblo, 	4, true
+//	zona_herrero, 	5, true
+//	zona_cueva,		6, true
+//	zona_grabado, 	7, condicional
+//	zona_espejo, 	8, condicional
+//	zona_lago, 		9, true
+//	zona_torre_base,	10, condicional
+//	zona_torre_medio, 	11, condicional
+//	zona_torre_cima;	12, condicional
+// default	(true)
+	
+	bosque zona_bosque = (bosque) arrayzones[0]; 
+	montaña zona_montaña = (montaña) arrayzones[1]; 
+	cima zona_cima = (cima) arrayzones[2]; 
+	templo zona_templo = (templo) arrayzones[3]; 
+	pueblo zona_pueblo = (pueblo) arrayzones[4]; 
+	herrero zona_herrero = (herrero) arrayzones[5]; 
+	cueva_esfinge zona_cueva_esfinge = (cueva_esfinge) arrayzones[6]; 
+	zona zona_grabado = arrayzones[7]; 
+	cueva_espejo zona_espejo = (cueva_espejo) arrayzones[8]; 
+	lago zona_lago = (lago) arrayzones[9];
+	torre_base zona_torre_base = (torre_base) arrayzones[10]; 
+	torre_medio zona_torre_medio = (torre_medio) arrayzones[11]; 
+	torre_cima zona_torre_cima = (torre_cima) arrayzones[12]; 
+
+	switch (z) {
+	case 0:	return zona_bosque.potmoure(zona_lago);
+	case 1: return zona_montaña.potmoure(zona_cima);
+	case 2: return zona_cima.potmoure(zona_montaña);
+	case 3: return true;
+	case 4: return true;
+	case 5: return true;
+	case 6: return true;
+	case 7: return zona_espejo.potmoure(zona_cueva_esfinge);
+	
+	case 8: break;
+	
+	case 9: return true;
+	case 10: return zona_torre_base.potmoure(zona_lago);
+	
+	case 11: break;
+	case 12: break;
+	
+	default: return false;
+	}
 	
 	
+	System.out.println("no hauries de estar aqui");
+	return false;
 	
+}
+
+
+
 }
 
 

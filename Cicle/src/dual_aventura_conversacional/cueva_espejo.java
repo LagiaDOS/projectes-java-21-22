@@ -27,7 +27,11 @@ public class cueva_espejo extends zona {
 	
 	
 	
-	
+public boolean potmoure(cueva_esfinge zona_cueva) {
+		
+		return zona_cueva.enigma_resuelto;
+		
+	}
 	
 	
 }

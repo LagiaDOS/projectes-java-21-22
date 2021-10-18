@@ -94,7 +94,16 @@ public class zona {
 	}
 	
 	
+	public boolean potmoure() {
+		//cada zona te el seu potmoure propi amb les condicions propies. Aixo es nomes un default por si acaso
+		return true;
+	}
 	
+	public void moviment_negat() 
+	{}
+	
+	public void parlar() 
+	{}
 	
 	
 }

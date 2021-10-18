@@ -7,6 +7,9 @@ public class montaña extends zona {
 	boolean espada_enseñada;
 	String nombre_guardia;
 	boolean nombre_dado;
+	
+	
+	
 	public boolean isEspada_enseñada() {
 		return espada_enseñada;
 	}
@@ -35,7 +38,14 @@ public class montaña extends zona {
 	}
 	
 	
-	
+	public boolean potmoure(cima zona_cima) {
+		
+		if (zona_cima.duelo == true) {return false;}
+		if (zona_cima.duelo == false) {return true;}
+		
+		
+		return true;
+	}
 	
 	
 }
