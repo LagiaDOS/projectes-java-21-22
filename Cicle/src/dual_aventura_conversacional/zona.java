@@ -100,10 +100,14 @@ public class zona {
 	}
 	
 	public void moviment_negat() 
-	{}
+	{
+		
+		
+	}
 	
-	public void parlar() 
-	{}
+	public void parlar(jugador player) 
+	{
+	}
 	
 	
 }
