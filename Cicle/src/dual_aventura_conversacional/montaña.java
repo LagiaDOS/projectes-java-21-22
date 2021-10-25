@@ -8,7 +8,7 @@ public class montaña extends zona {
 	boolean espada_enseñada;
 	String nombre_guardia;
 	boolean nombre_dado;
-	
+	String nombreJ = "chaval";
 	
 	
 	public boolean isEspada_enseñada() {
@@ -68,7 +68,7 @@ public class montaña extends zona {
 	{
 	Scanner teclat = new Scanner(System.in);		
 
-	String nombreJ = "chaval";
+	
 	int opcio=0;
 
 	
@@ -78,9 +78,6 @@ public class montaña extends zona {
 	System.out.println("0. - Quien eres?");
 	System.out.println("1. - Que hay en la cima de la montaña?");
 	System.out.println("2. - Que puedo hacer para pasar?");
-	for (int i = 0; i < player.inventari.size(); i++) {
-		if (player.inventari.get(i).id == 1) {System.out.println("3. - Tengo una espada, asi que soy un guerrero, puedo pasar?");}
-	}
 	opcio = teclat.nextInt();
 
 	
@@ -99,15 +96,7 @@ public class montaña extends zona {
 	case 2: 	System.out.println("- Demuestrame que eres en guerrero!");
 	break;	
 	
-	case 3: 	
-		
-		for (int i = 0; i < player.inventari.size(); i++) {
-			if (player.inventari.get(i).id == 1) 
-				{if(espada_enseñada==false){System.out.println(" - Hmmm… una niña pequeña seria mas guerrera que tu, pero supongo que tecnicamente eres un guerrero… puedes pasar "+  nombreJ + ". Mientras enfundas tu espada " + nombre_guardia + " se aparta dejandote paso al sendero para llegar a la cima de la montaña. "); espada_enseñada=true;	}
-				else {System.out.println("- Hm?! Ya me has enseñado tu espada! Puedes pasar! Acaso no me has escuchado?! TENGO QUE GRITAR MAS PARA QUE ME ESCUCHES?! - Te grita " + nombre_guardia + ", dejandote casi sordo.");}
-			break;}
-		}	
-		
+
 		
 		
 	
@@ -117,6 +106,34 @@ public class montaña extends zona {
 
 	}
 	
+
+	
+	public void atacar() {System.out.println("No te parece buena idea atacar a " +nombre_guardia + ".");}
+	
+	public void defender() {System.out.println("No hay necesidad de defenderse de " + nombre_guardia + ".");}
+	
+	public int subir(int zonaactual) {
+		
+	if (espada_enseñada == true) {System.out.println("Subes a la cima");return 2;}
+	else {System.out.println("No puedes subir a la cima, " + nombre_guardia + " esta en el camino."); return zonaactual;}
+		
+	}
+	
+	
+	
+	public void usaritem(jugador player, int seleccio) 
+	{
+		int item = player.inventari.get(seleccio).id;
+		
+		switch (item)
+		{
+		case 1: 
+		System.out.println("Desenfundas tu espada, enseñandosela a " + nombre_guardia + ".");
+		if(espada_enseñada==false){System.out.println(" - Hmmm… una niña pequeña seria mas guerrera que tu, pero supongo que tecnicamente eres un guerrero… puedes pasar "+  nombreJ + ". Mientras enfundas tu espada " + nombre_guardia + " se aparta dejandote paso al sendero que sube a la cima de la montaña. "); espada_enseñada=true;	}
+		else {System.out.println("- Hm?! Ya me has enseñado tu espada! Puedes pasar! Acaso no me has escuchado?! TENGO QUE GRITAR MAS PARA QUE ME ESCUCHES?! - Te grita " + nombre_guardia + ", dejandote casi sordo.");}
+		break;	
+		default: System.out.println("No se te ocurre como usar el/la " + player.inventari.get(seleccio).nom + " aqui puede servir de algo.");break;}
+	}
 	
 	
 }

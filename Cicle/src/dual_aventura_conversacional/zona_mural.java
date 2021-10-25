@@ -19,6 +19,6 @@ public class zona_mural extends zona {
 	
 	
 	public void moviment_negat() 
-	{System.out.println("No hi ha cap lloc on anar. Nomes hi ha una paret.");}
+	{System.out.println("No hay donde moverse. Solo hay una pared.");}
 	
 }

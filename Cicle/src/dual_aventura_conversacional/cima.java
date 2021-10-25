@@ -10,6 +10,9 @@ public class cima extends zona {
 	boolean demonio_mostrado;
 	int ataques;
 	int defensas;
+	
+	String atac_defensa;
+	
 	public boolean isPuerta_cerrada() {
 		return puerta_cerrada;
 	}
@@ -64,6 +67,69 @@ public class cima extends zona {
 	}
 
 	public void moviment_negat() 
-	{System.out.println("El cami a la cima esta tallat");}
+	{System.out.println("El camino a la cima esta bloqueado por el guardian, no puedes pasar.");}
+
+	public int subir(int zonaactual) {System.out.println("No puedes subir mas arriba"); return zonaactual;}
+	
+	public int bajar(int zonaactual) {
+		if (duelo== true) {System.out.println("No puedes huir en medio del duelo!"); return zonaactual;}
+		else {System.out.println("Bajas a la montaña.");return 1;}
+		}
+	
+	public void encender() {System.out.println("Las luces ya estan encedidas.");}
+	
+	public void apagar() {System.out.println("Soplas en una de las velas, apagandola. Un instante despues se vuelve a encender por arte de magia.");}
+	
+	public void atacar(jugador player) 
+	{
+		
+		if (demonio_mostrado == false && duelo ==false) {System.out.println("El aura de susano es atemorizante, no te parece buena idea atacarle.");}
+		if (demonio_mostrado == true && hasespada(player )==false && duelo == false) {System.out.println("Sin armas? No seas necio, humano, armate antes.- Te dice Susanoo.");}
+		if (demonio_mostrado == true && hasespada(player)==false && duelo == false) {System.out.println("No me contendre, humano, preparate! - Te grita susanoo. Ves como en su mano empieza a surgir un relampago, que se solidifica tomando la forma de una espada larga de bronze pulido. Tu desenfundas tu espada, dudando que tu hoja pueda herirlo siquiera."); duelo = true;}
+
+		if (duelo == true) 
+		{duelo(atac_defensa="atac");}
+		
+	
+	}
+	
+	public void defender() {
+		if (duelo == false) {System.out.println("No hay necesidad de defenderse.");}
+		
+		
+		if (duelo == true) {duelo(atac_defensa="defensa");}
+	}
+	
+	public boolean hasespada(jugador player) {
+		for (int i = 0; i < player.inventari.size(); i++) 
+		{if (player.inventari.get(i).id ==1) {return true;}}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public void parlar(jugador player)
+	{}
+	
+
+	
+	public void duelo(String atac_defensa) 
+	{}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -101,12 +101,28 @@ public class zona {
 	
 	public void moviment_negat() 
 	{
-		
+	
 		
 	}
 	
-	public void parlar(jugador player) 
+	public void parlar(jugador player){}
+	
+	public void atacar(jugador player) {System.out.println("No hay nada que atacar aqui.");}
+	
+	public void defender() {System.out.println("No hay necesidad de defenderse.");}
+	
+	public int subir(int zonaactual) {System.out.println("No hay nada donde subir."); return zonaactual;}
+	
+	public int bajar(int zonaactual) {System.out.println("No hay nada donde bajar."); return zonaactual;}
+	
+	public void encender() {System.out.println("No hay nada que encender.");}
+	
+	public void apagar() {System.out.println("No hay nada donde apagar.");}
+	
+	public void usaritem(jugador player, int seleccio) 
 	{
+		switch (seleccio)
+		{default: System.out.println("No se te ocurre como usar el/la " + player.inventari.get(seleccio).nom + " aqui puede servir de algo.");break;}
 	}
 	
 	

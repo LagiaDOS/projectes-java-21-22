@@ -2,6 +2,8 @@ package dual_aventura_conversacional;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class main {
 
 	
@@ -12,7 +14,7 @@ public class main {
 
 	ArrayList<objecte> inventari = new ArrayList<objecte>();
 	
-
+	int zonaactual=0;
 	
 	// Demanar el nom del jugador
 	System.out.println("Cual es tu nombre?");
@@ -37,16 +39,20 @@ public class main {
 	objecte espejo = new objecte(2, "Espejo Encantado", true);
 	objecte magatama = new objecte(3, "Magatama Sagrada", true);
 	objecte murakumo = new objecte(4, "Ame-no-Murakumo", true);
+	objecte antorcha = new objecte(5, "Antorcha", true);
+	objecte aguasagrada = new objecte(6, "Agua Sagrada", true);
+
 		
+	
 	// inicialitzar jugador
 	jugador player = new jugador(nom, inventari , 0);
 	//player.printjugador();
 	
 	
-	
+	player.inventari.add(espada);
 	
 	//inicialitzar zones
-	int zonaactual=0;
+	
 	bosque zona_bosque = new bosque("el Bosque.", "zona_bosque", false, "zona_lago", "zona_cueva", "zona_pueblo", "zona_montaña", inventari) ;
 	montaña zona_montaña = new montaña(" la Base de la montaña.", "zona_montaña", false, null, null, "zona_bosque", "zona_cima", inventari, false, "El guardian", false);
 	cima zona_cima = new cima("en la cima de la montaña.", "zona_cima", false, null, null, "zona_montaña", null, inventari, false, false, false, false, 0, 0);
@@ -54,7 +60,7 @@ public class main {
 	pueblo zona_pueblo = new pueblo ("tu pueblo.", "zona_pueblo", false, "zona_templo", "zona_herrero", null, "zona_bosque", inventari);
 	herrero zona_herrero = new herrero("la herreria de tu pueblo.", "zona_herrero", false, "zona_pueblo", null, null, null, inventari, false);
 	cueva_esfinge zona_cueva = new cueva_esfinge("la cueva del bosque.", "zona_cueva", false, "zona_bosque", null, "zona_espejo", "zona_grabado", inventari, false);
-	zona zona_grabado = new zona("una zona con grabados.", "zona_grabado", false, null, null, "zona_cueva", null, inventari);
+	zona_mural zona_grabado = new zona_mural("una zona con grabados.", "zona_grabado", false, null, null, "zona_cueva", null, inventari);
 	cueva_espejo zona_espejo = new cueva_espejo("una sala con antorchas.", "zona_espejo", false, null, null, null, "zona_cueva", inventari, false, null);
 	lago zona_lago = new lago("el lago.", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, inventari, false, false, false, false);
 	torre_base zona_torre_base = new torre_base("la base de la Torre.", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, inventari);
@@ -64,13 +70,18 @@ public class main {
 	zona[] arrayzones = {zona_bosque, zona_montaña, zona_cima, zona_templo, zona_pueblo, zona_herrero, zona_cueva, zona_grabado, zona_espejo, zona_lago, zona_torre_base, zona_torre_medio, zona_torre_cima};
 	
 	
+	//comandes
+	//moure, parlar, agafar, deixar, atacar, defensar, pujar, baixar, encendre
 	
+
 	
 	//bucle principal
 	
 	boolean jugant = true;
 	zonaactual = 0;
-			
+		
+
+	
 	while (jugant == true) 
 	{
 		
@@ -82,92 +93,18 @@ public class main {
 		arrayzones[zonaactual].introzona();
 		
 		System.out.println("Que quieres hacer?");
-		System.out.println("1: Hablar");
-		System.out.println("2: Moverte");
-		System.out.println("3. Coger o dejar objetos.");
+		String comanda = "";
+		comanda = teclat.nextLine();
+		comanda = comanda.toLowerCase();
 		
-		int comanda;
-		
-		comanda = teclat.nextInt();	
-		
-		switch (comanda){
-		
-		//parlar
-		case 1: 
-		
-		arrayzones[zonaactual].parlar(player); 
-		//System.out.println("Con quien quieres hablar?");
-		
-		break;
-		
-		// agafar/deixar items
-		case 3:
-
-			System.out.println("Que quieres hacer?");
-			System.out.println("1. Dejar un objeto.");
-			System.out.println("2. Coger un objeto");
-			
-			int tiraragafar = teclat.nextInt();
-			
-			switch (tiraragafar) {
-			case 1: //tirar
-			if (player.inventari.isEmpty()) {System.out.println("No tienes nada para dejar!");}
-			if (player.inventari.isEmpty()==false) {System.out.println("Que quieres dejar?");
-			for (int i = 0; i < player.inventari.size(); i++) {System.out.println(i +". " + player.inventari.get(i).nom);}
-
-			int objectetirar;
-			objectetirar = teclat.nextInt();
-			arrayzones[zonaactual].items_terra.add(player.inventari.get(objectetirar));
-			System.out.println("Dejaste el/la " + player.inventari.get(objectetirar).nom + " en el suelo.");
-			player.inventari.remove(objectetirar);
-			}
-			
-			break;
-			
-			
-		case 2: 
-			//agafar
-			
-			if (arrayzones[zonaactual].items_terra.isEmpty()) {System.out.println("No hay nada que recoger!");}
-						
-			if (arrayzones[zonaactual].items_terra.isEmpty()==false) {System.out.println("Que quieres coger?");
-			for (int i = 0; i < arrayzones[zonaactual].items_terra.size(); i++) {System.out.println(i +". " + arrayzones[zonaactual].items_terra.get(i).nom);}
-			int objecteagafar;
-			objecteagafar = teclat.nextInt();
-			player.inventari.add(arrayzones[zonaactual].items_terra.get(objecteagafar));
-			System.out.println("Cogiste el/la" + arrayzones[zonaactual].items_terra.get(objecteagafar).nom + "."); //tu lo tomaste cuerda
-			arrayzones[zonaactual].items_terra.remove(objecteagafar);
-			}
-		
-			break;
-		default: System.out.println("Opcion no valida introducida.");break;
-			}	
-				
-	
-			
-			break;
-		
-		
-		//sistema de moviment
-		//introduir cambi de zona manual.
-		case 2: 
-				
+		switch (comanda) {
+		case "mover": 
 		
 		System.out.println("En que direccion quieres ir?");
-		System.out.println("Arriba :   1");
-		System.out.println("Abajo :   2");
-		System.out.println("Derecha :   3");
-		System.out.println("Izquierda: 4");
-		System.out.println("No se aceptaran otros valores");
-		
-		int cambi = teclat.nextInt();
-		
-		
-		//System.out.println("cambi actual: " + cambi);
-		
-		
+		String cambi = teclat.nextLine();
+
 			switch (cambi){
-			case 1: 
+			case "arriba": 
 				if(arrayzones[zonaactual].zona_adalt != null ) 
 				{
 					for(int i = 0; i < arrayzones.length; i++){
@@ -183,7 +120,7 @@ public class main {
 				}else {System.out.println("No puedes ir en esa direccion"); arrayzones[zonaactual].moviment_negat();}
 				break; //adalt
 			
-			case 2: 
+			case "abajo": 
 				if (arrayzones[zonaactual].zona_abaix != null) 
 				{
 					for(int i = 0; i < arrayzones.length; i++){
@@ -197,7 +134,7 @@ public class main {
 				}else {System.out.println("No puedes ir en esa direccion"); arrayzones[zonaactual].moviment_negat();}
 				break; //abaix
 			
-			case 3: 
+			case "derecha": 
 				if(arrayzones[zonaactual].zona_dreta != null)
 				{
 					for(int i = 0; i < arrayzones.length; i++){
@@ -211,8 +148,8 @@ public class main {
 					}
 				}else {System.out.println("No puedes ir en esa direccion"); arrayzones[zonaactual].moviment_negat();}
 				break; //dreta
-	
-			case 4: 
+
+			case "izquierda": 
 				if(arrayzones[zonaactual].zona_esquerra != null){
 					for(int i = 0; i < arrayzones.length; i++){
 						if	(arrayzones[zonaactual].zona_esquerra == arrayzones[i].id){
@@ -225,10 +162,106 @@ public class main {
 					}
 				}else {System.out.println("No puedes ir en esa direccion"); arrayzones[zonaactual].moviment_negat();}
 				break;//esquerra
-			default: jugant= false; break;}
-		
-		//System.out.println(arrayzones[zonaactual].potmoure());
+			default: break;}
 		System.out.println();
+		break;
+		
+		
+		
+		case "hablar": 
+			arrayzones[zonaactual].parlar(player); 
+			break;
+			
+			
+			
+			
+		case "coger": 
+			if (arrayzones[zonaactual].items_terra.isEmpty()) {System.out.println("No hay nada que recoger!");}
+			
+			if (arrayzones[zonaactual].items_terra.isEmpty()==false) {System.out.println("Que quieres coger?");
+			for (int i = 0; i < arrayzones[zonaactual].items_terra.size(); i++) {System.out.println(i +". " + arrayzones[zonaactual].items_terra.get(i).nom);}
+			int objecteagafar;
+			objecteagafar = teclat.nextInt();
+			player.inventari.add(arrayzones[zonaactual].items_terra.get(objecteagafar));
+			System.out.println("Cogiste el/la" + arrayzones[zonaactual].items_terra.get(objecteagafar).nom + "."); //tu lo tomaste cuerda
+			arrayzones[zonaactual].items_terra.remove(objecteagafar);
+			}
+			break;
+			
+			
+			
+		case "dejar": 		
+			
+			if (player.inventari.isEmpty()) {System.out.println("No tienes nada para dejar!");}
+			
+			if (player.inventari.isEmpty()==false) {System.out.println("Que quieres dejar?");
+			for (int i = 0; i < player.inventari.size(); i++) {System.out.println(i +". " + player.inventari.get(i).nom);}
+
+			int objectetirar;
+			objectetirar = teclat.nextInt();
+			arrayzones[zonaactual].items_terra.add(player.inventari.get(objectetirar));
+			System.out.println("Dejaste el/la " + player.inventari.get(objectetirar).nom + " en el suelo.");
+			player.inventari.remove(objectetirar);
+			}break;
+			
+			
+			
+			
+		case "atacar": 
+		arrayzones[zonaactual].atacar(player);
+		break;
+		
+		
+		case "defender": 
+		arrayzones[zonaactual].defender();
+		break;
+		
+		
+		case "subir": 
+		zonaactual = arrayzones[zonaactual].subir(zonaactual);			
+		break;
+		
+		
+		case "bajar": 
+		zonaactual = arrayzones[zonaactual].bajar(zonaactual);	
+		break;
+		
+		
+		case "encender": 
+		arrayzones[zonaactual].encender();		
+		break;
+		
+		
+		case "apagar":
+		arrayzones[zonaactual].apagar();		
+		break;
+		
+		case "usar":
+			Scanner teclat2 = new Scanner(System.in);		
+			if (player.inventari.isEmpty()) {System.out.println("No tienes nada que usar!");}
+			if (player.inventari.isEmpty()==false)	{
+			System.out.println("Que objeto quieres usar?");
+			for (int i = 0; i < arrayzones[zonaactual].items_terra.size(); i++) {System.out.println(i +". " + arrayzones[zonaactual].items_terra.get(i).nom);}
+			int seleccio = 1;
+			seleccio = teclat2.nextInt();
+			arrayzones[zonaactual].usaritem(player, seleccio);
+			
+			}
+		break;
+		
+		
+		
+		
+		default: System.out.println("Introduce una opcion valida");break;
+		}
+		
+		
+		
+		
+		
+
+		
+	
 
 		}
 		
@@ -239,7 +272,7 @@ public class main {
 	}
 	
 	
-}
+
 
 
 
@@ -269,7 +302,7 @@ public static boolean check_pasar(int z, zona[] arrayzones, int zonaactual) {
 	pueblo zona_pueblo = (pueblo) arrayzones[4]; 
 	herrero zona_herrero = (herrero) arrayzones[5]; 
 	cueva_esfinge zona_cueva_esfinge = (cueva_esfinge) arrayzones[6]; 
-	zona zona_grabado = arrayzones[7]; 
+	zona_mural zona_grabado = (zona_mural) arrayzones[7]; 
 	cueva_espejo zona_espejo = (cueva_espejo) arrayzones[8]; 
 	lago zona_lago = (lago) arrayzones[9];
 	torre_base zona_torre_base = (torre_base) arrayzones[10]; 
@@ -287,16 +320,15 @@ public static boolean check_pasar(int z, zona[] arrayzones, int zonaactual) {
 	case 4: return true;
 	case 5: return true;
 	case 6: return true;
-	case 7: return zona_espejo.potmoure(zona_cueva_esfinge);
-	case 8: break;
+	case 7: return zona_grabado.potmoure(zona_cueva_esfinge);
+	case 8: return zona_espejo.potmoure(zona_cueva_esfinge);
 	case 9: return true;
 	case 10: return zona_torre_base.potmoure(zona_lago);
 	case 11: break;
 	case 12: break;
 	default: return false;
 	}
-	
-	
+		
 	System.out.println("no hauries de estar aqui");
 	return false;
 	

@@ -34,4 +34,8 @@ public boolean potmoure(cueva_esfinge zona_cueva) {
 	}
 	
 	
+
+public void moviment_negat() {
+	{System.out.println("No hay donde moverse. Solo hay una pared.");}
+}
 }

@@ -40,4 +40,12 @@ public class bosque extends zona {
 	}
 	
 	
+	public void atacar() {System.out.println("Acaso quieres atacar a los arboles?");}
+	
+	public void defender() {System.out.println("Defenderte de que? De la brisa?");}
+	
+	public void subir() {System.out.println("Lo unico que hay por subir son los arboles, y no te parece una buena idea");}
+		
+	public void encender() {System.out.println("No vas a hacer un incendio forestal");}
+			
 }
