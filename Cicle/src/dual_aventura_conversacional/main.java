@@ -12,7 +12,6 @@ public class main {
 	public static void main(String[] args) {
 		Scanner teclat = new Scanner(System.in);		
 
-	ArrayList<objecte> inventari = new ArrayList<objecte>();
 	
 	int zonaactual=0;
 	
@@ -45,6 +44,7 @@ public class main {
 		
 	
 	// inicialitzar jugador
+	ArrayList<objecte> inventari = new ArrayList<objecte>();
 	jugador player = new jugador(nom, inventari , 0);
 	//player.printjugador();
 	
@@ -52,20 +52,32 @@ public class main {
 	player.inventari.add(espada);
 	
 	//inicialitzar zones
-	
-	bosque zona_bosque = new bosque("el Bosque.", "zona_bosque", false, "zona_lago", "zona_cueva", "zona_pueblo", "zona_montaña", inventari) ;
-	montaña zona_montaña = new montaña(" la Base de la montaña.", "zona_montaña", false, null, null, "zona_bosque", "zona_cima", inventari, false, "El guardian", false);
-	cima zona_cima = new cima("en la cima de la montaña.", "zona_cima", false, null, null, "zona_montaña", null, inventari, false, false, false, false, 0, 0);
-	templo zona_templo = new templo("el templo de tu pueblo.", "zona_templo", false, null, "zona_pueblo", null, null, inventari, false);
-	pueblo zona_pueblo = new pueblo ("tu pueblo.", "zona_pueblo", false, "zona_templo", "zona_herrero", null, "zona_bosque", inventari);
-	herrero zona_herrero = new herrero("la herreria de tu pueblo.", "zona_herrero", false, "zona_pueblo", null, null, null, inventari, false);
-	cueva_esfinge zona_cueva = new cueva_esfinge("la cueva del bosque.", "zona_cueva", false, "zona_bosque", null, "zona_espejo", "zona_grabado", inventari, false);
-	zona_mural zona_grabado = new zona_mural("una zona con grabados.", "zona_grabado", false, null, null, "zona_cueva", null, inventari);
-	cueva_espejo zona_espejo = new cueva_espejo("una sala con antorchas.", "zona_espejo", false, null, null, null, "zona_cueva", inventari, false, null);
-	lago zona_lago = new lago("el lago.", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, inventari, false, false, false, false);
-	torre_base zona_torre_base = new torre_base("la base de la Torre.", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, inventari);
-	torre_medio zona_torre_medio = new torre_medio("el medio de la Torre.", "zona_torre_medio", false, null, null, "zona_torre_cima", "zona_torre_base", inventari);
-	torre_cima zona_torre_cima = new torre_cima("la cuspide de la Torre.", "zona_torre_cima", false, null, null, null, "zona_torre_medio", inventari);
+	ArrayList<objecte> inventaribosque = new ArrayList<objecte>();
+	bosque zona_bosque = new bosque("el Bosque.", "zona_bosque", false, "zona_lago", "zona_cueva", "zona_pueblo", "zona_montaña", inventaribosque);
+	ArrayList<objecte> inventarimontaña = new ArrayList<objecte>();
+	montaña zona_montaña = new montaña(" la Base de la montaña.", "zona_montaña", false, null, null, "zona_bosque", "zona_cima", inventarimontaña, false, "El guardian", false);	
+	ArrayList<objecte> inventaricima = new ArrayList<objecte>();
+	cima zona_cima = new cima("en la cima de la montaña.", "zona_cima", false, null, null, "zona_montaña", null, inventaricima, false, false, false, false, 0, 0);
+	ArrayList<objecte> inventaritemplo = new ArrayList<objecte>();
+	templo zona_templo = new templo("el templo de tu pueblo.", "zona_templo", false, null, "zona_pueblo", null, null, inventaritemplo, false);
+	ArrayList<objecte> inventaripueblo = new ArrayList<objecte>();
+	pueblo zona_pueblo = new pueblo ("tu pueblo.", "zona_pueblo", false, "zona_templo", "zona_herrero", null, "zona_bosque", inventaripueblo);
+	ArrayList<objecte> inventariherrero = new ArrayList<objecte>();
+	herrero zona_herrero = new herrero("la herreria de tu pueblo.", "zona_herrero", false, "zona_pueblo", null, null, null, inventariherrero, false);
+	ArrayList<objecte> inventariesfinge = new ArrayList<objecte>();
+	cueva_esfinge zona_cueva = new cueva_esfinge("la cueva del bosque.", "zona_cueva", false, "zona_bosque", null, "zona_espejo", "zona_grabado", inventariesfinge, false);
+	ArrayList<objecte> inventaribosquemural = new ArrayList<objecte>();
+	zona_mural zona_grabado = new zona_mural("una zona con grabados.", "zona_grabado", false, null, null, "zona_cueva", null, inventaribosquemural);
+	ArrayList<objecte> inventariespejo = new ArrayList<objecte>();
+	cueva_espejo zona_espejo = new cueva_espejo("una sala con antorchas.", "zona_espejo", false, null, null, null, "zona_cueva", inventariespejo, false, null);
+	ArrayList<objecte> inventarilago = new ArrayList<objecte>();
+	lago zona_lago = new lago("el lago.", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, inventarilago, false, false, false, false);
+	ArrayList<objecte> inventaribase = new ArrayList<objecte>();
+	torre_base zona_torre_base = new torre_base("la base de la Torre.", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, inventaribase);
+	ArrayList<objecte> inventarimedio = new ArrayList<objecte>();
+	torre_medio zona_torre_medio = new torre_medio("el medio de la Torre.", "zona_torre_medio", false, null, null, "zona_torre_cima", "zona_torre_base", inventarimedio);
+	ArrayList<objecte> inventaricuspide = new ArrayList<objecte>();
+	torre_cima zona_torre_cima = new torre_cima("la cuspide de la Torre.", "zona_torre_cima", false, null, null, null, "zona_torre_medio", inventaricuspide);
 	
 	zona[] arrayzones = {zona_bosque, zona_montaña, zona_cima, zona_templo, zona_pueblo, zona_herrero, zona_cueva, zona_grabado, zona_espejo, zona_lago, zona_torre_base, zona_torre_medio, zona_torre_cima};
 	
@@ -241,7 +253,7 @@ public class main {
 			if (player.inventari.isEmpty()) {System.out.println("No tienes nada que usar!");}
 			if (player.inventari.isEmpty()==false)	{
 			System.out.println("Que objeto quieres usar?");
-			for (int i = 0; i < arrayzones[zonaactual].items_terra.size(); i++) {System.out.println(i +". " + arrayzones[zonaactual].items_terra.get(i).nom);}
+			for (int i = 0; i < player.inventari.size(); i++) {System.out.println(i +". " + player.inventari.get(i).nom);}
 			int seleccio = 1;
 			seleccio = teclat2.nextInt();
 			arrayzones[zonaactual].usaritem(player, seleccio);
