@@ -105,7 +105,7 @@ public class zona {
 		
 	}
 	
-	public void parlar(jugador player){}
+	public void parlar(jugador player){System.out.println("No hay nadie con quien hablar...");}
 	
 	public void atacar(jugador player) {System.out.println("No hay nada que atacar aqui.");}
 	

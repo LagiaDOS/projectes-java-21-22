@@ -6,6 +6,8 @@ public class cueva_espejo extends zona {
 
 	boolean puzle_resuelto;
 	Boolean[] antorchas;
+	
+	
 	public boolean isPuzle_resuelto() {
 		return puzle_resuelto;
 	}
@@ -25,17 +27,29 @@ public class cueva_espejo extends zona {
 		this.antorchas = antorchas;
 	}
 	
-	
-	
-public boolean potmoure(cueva_esfinge zona_cueva) {
-		
-		return zona_cueva.enigma_resuelto;
-		
+	public boolean potmoure(cueva_esfinge zona_cueva) {
+			
+			return zona_cueva.enigma_resuelto;
+			
+		}
+	public void moviment_negat() {
+		{System.out.println("No hay donde moverse. Solo hay una pared.");}
 	}
 	
 	
+	
 
-public void moviment_negat() {
-	{System.out.println("No hay donde moverse. Solo hay una pared.");}
-}
+
+
+	public void introzona(jugador player) 
+	{
+		if (entrat == true) {System.out.println("El pequeño santuario sigue como siempre. La escritura del marco dice “El espejo de la verdad se revelara cuando la luz y la oscuridad de las hermanas se muestren delante suya.”");}
+		else {System.out.println("Tras la puerta oculta encuentras una extraña sala. Delante tuya hay varias antorchas apagadas, detras de las cuales hay un pequeño santuario de madera y piedra. El santuario tiene iconografia solar y lunar, en las mitades derecha e izquierda respectivamente. \r\n"
+				+ "\r\n"
+				+ "En medio del santuario ves un receptaculo, en el que dentro reposa un espejo antiguo encima de un cojin delicadamente tejido. Intentas coger el espejo, pero una especie de campo de fuerza impide que puedas cogerlo. Ves como en el marco del receptaculo esta escrito “El espejo de la verdad se revelara cuando la luz y la oscuridad de las hermanas se muestren delante suya.”"); entrat = true;}		
+	}
+
+
+
+
 }
