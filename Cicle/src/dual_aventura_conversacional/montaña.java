@@ -46,7 +46,7 @@ public class montaña extends zona {
 		return true;
 	}
 	
-	public void introzona() 
+	public void introzona(jugador player) 
 	{
 		if (entrat == true) {System.out.println("Tras caminar durante cerca de una hora, llegas finalmente a la base de la montaña del relampago. Anillos de nubes negruzcas se arremolinan alrededor de su cima, mientras constantes truenos hacen retumbar la montaña entera.\r\n"
 				+ nombre_guardia + "esta protegiendo el camino a la cima, como la ultima vez que lo viste.");}

@@ -87,7 +87,7 @@ public class zona {
 	}
 	
 	
-	public void introzona() 
+	public void introzona(jugador player) 
 	{
 		if (entrat == true) {System.out.println("Has entrat a " + nom + " Segona visita");}
 		else {System.out.println("Has entrat a " + nom + " Primera visita"); entrat = true;}		

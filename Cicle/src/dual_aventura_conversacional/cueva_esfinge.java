@@ -23,7 +23,7 @@ public class cueva_esfinge extends zona {
 	
 	
 	
-	public void introzona() 
+	public void introzona(jugador player) 
 	{
 
 		if (entrat == true) {

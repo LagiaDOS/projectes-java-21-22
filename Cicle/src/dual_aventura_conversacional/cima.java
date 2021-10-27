@@ -16,6 +16,7 @@ public class cima extends zona {
 	boolean dueloganado = false;
 	boolean empezarduelo = false;
 	
+
 	public boolean isPuerta_cerrada() {
 		return puerta_cerrada;
 	}
@@ -65,7 +66,7 @@ public class cima extends zona {
 	}
 	
 	
-	public void introzona() {
+	public void introzona(jugador player) {
 			
 		if (dueloganado == true && murakumosuelo()==false){System.out.println("Segun sales del templo, Murakumo en mano, un temblor hace que parte de el se derrumbe, sellando la entrada al templo."); entrada_sellada=true;}
 				
@@ -130,14 +131,17 @@ else {		System.out.println("Soplas en una de las velas, apagandola. Un instante 
 	public void atacar(jugador player) 
 	{
 		if(entrada_sellada==false) {	
-			if (duelo == true) 
-			{ataques++; duelo(atac_defensa="atac");}
-			
-			if (duelo== false){
-				if (demonio_mostrado == false) {System.out.println("El aura de susano es atemorizante, no te parece buena idea atacarle.");}
-				if (demonio_mostrado == true && hasespada(player )==false) {System.out.println("Sin armas? No seas necio, humano, armate antes.- Te dice Susanoo.");}
-				if (demonio_mostrado == true && hasespada(player)==true ) {System.out.println("No me contendre, humano, preparate! - Te grita susanoo. Ves como en su mano empieza a surgir un relampago, que se solidifica tomando la forma de una espada larga de bronze pulido. Tu desenfundas tu espada, dudando que tu hoja pueda herirlo siquiera."); duelo = true;}
+			if (dueloganado==false) {
+				if (duelo == true) 
+				{ataques++; duelo(atac_defensa="atac");}
+				
+				if (duelo== false && dueloganado==false){
+					if (demonio_mostrado == false) {System.out.println("El aura de susano es atemorizante, no te parece buena idea atacarle.");}
+					if (demonio_mostrado == true && hasespada(player )==false) {System.out.println("Sin armas? No seas necio, humano, armate antes.- Te dice Susanoo.");}
+					if (demonio_mostrado == true && hasespada(player)==true ) {System.out.println("No me contendre, humano, preparate! - Te grita susanoo. Ves como en su mano empieza a surgir un relampago, que se solidifica tomando la forma de una espada larga de bronze pulido. Tu desenfundas tu espada, dudando que tu hoja pueda herirlo siquiera."); duelo = true;}
+				}
 			}
+			else {System.out.println("El momento de atacar a susanoo ya ha pasado.");}
 		}
 		else {System.out.println("No hay nadie a quien atacar...");}
 	}
@@ -177,6 +181,7 @@ else {		System.out.println("Soplas en una de las velas, apagandola. Un instante 
 			
 			objecte murakumo = new objecte(4, "Ame-no-Murakumo", true);
 			items_terra.add(murakumo);
+			duelo=false;
 			break;
 			}
 			

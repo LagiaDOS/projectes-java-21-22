@@ -12,7 +12,7 @@ public class bosque extends zona {
 
 	
 
-	public void introzona() 
+	public void introzona(jugador player) 
 	{
 		if (entrat == true) {System.out.println("Estas en el bosque, aun buscando pistas y recursos para rescatar a tu hermana.");}
 		else {System.out.println("Estas en medio del bosque, una suave brisa fria sopla en esta mañana. \r\n"

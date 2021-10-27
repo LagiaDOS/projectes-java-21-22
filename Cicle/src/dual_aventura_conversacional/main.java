@@ -9,6 +9,7 @@ public class main {
 	
 	
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Scanner teclat = new Scanner(System.in);		
 
@@ -50,6 +51,8 @@ public class main {
 	
 	
 	player.inventari.add(espada);
+	player.inventari.add(murakumo);
+
 	
 	//inicialitzar zones
 	ArrayList<objecte> inventaribosque = new ArrayList<objecte>();
@@ -71,7 +74,7 @@ public class main {
 	ArrayList<objecte> inventariespejo = new ArrayList<objecte>();
 	cueva_espejo zona_espejo = new cueva_espejo("una sala con antorchas.", "zona_espejo", false, null, null, null, "zona_cueva", inventariespejo, false, null);
 	ArrayList<objecte> inventarilago = new ArrayList<objecte>();
-	lago zona_lago = new lago("el lago.", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, inventarilago, false, false, false, false);
+	lago zona_lago = new lago("el lago.", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, inventarilago, false, false, false, false, false);
 	ArrayList<objecte> inventaribase = new ArrayList<objecte>();
 	torre_base zona_torre_base = new torre_base("la base de la Torre.", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, inventaribase);
 	ArrayList<objecte> inventarimedio = new ArrayList<objecte>();
@@ -102,7 +105,7 @@ public class main {
 		
 		System.out.println("Te encuentras en " + arrayzones[zonaactual].nom);
 		
-		arrayzones[zonaactual].introzona();
+		arrayzones[zonaactual].introzona(player);
 		
 		System.out.println("Que quieres hacer?");
 		String comanda = "";
@@ -122,6 +125,7 @@ public class main {
 					for(int i = 0; i < arrayzones.length; i++){
 						if	(arrayzones[zonaactual].zona_adalt == arrayzones[i].id){
 							if (check_pasar(i, arrayzones, zonaactual)) {
+								if(i==9) {zona_lago.moures=true;}
 								System.out.println("Te has movido a " + arrayzones[i].nom); 
 								zonaactual=i ; 
 								break;
@@ -290,6 +294,7 @@ public class main {
 
 
 
+@SuppressWarnings("unused")
 public static boolean check_pasar(int z, zona[] arrayzones, int zonaactual) {
 	
 //	zona_bosque, 	0, condicional

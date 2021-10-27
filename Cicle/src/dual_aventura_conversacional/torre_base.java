@@ -14,9 +14,9 @@ public class torre_base extends zona {
 	
 	public boolean potmoure(lago zona_lago) {
 		
-		return false;
-		//return zona_lago.serpientes_muertas;
 		
+		return zona_lago.serpientes_muertas;
+
 	}
 	
 	public void moviment_negat() 
