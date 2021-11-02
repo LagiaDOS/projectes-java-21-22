@@ -76,19 +76,39 @@ public class cueva_espejo extends zona {
 	public void encender() {
 		Scanner teclat = new Scanner(System.in);		
 		System.out.println("Que antorcha quieres encender? Introduce su numero empezando por la izquierda (1-7)");
-		int seleccio=teclat.nextInt();
-		seleccio--;
-		if (antorchas[seleccio]==true) {System.out.println("Esa antorcha ya esta encendida");}
-		else {antorchas[seleccio]=true; System.out.println("Has encendido la antorcha.");}	
+		
+		try {
+			
+			int seleccio=teclat.nextInt();
+			seleccio--;
+			if (antorchas[seleccio]==true) {System.out.println("Esa antorcha ya esta encendida");}
+			else {antorchas[seleccio]=true; System.out.println("Has encendido la antorcha.");}	
+			
+		} catch (Exception e) {
+			System.out.println("Esa no es una de las antorchas!");
+		}
+	
+		
+		
 	}
 	
 	public void apagar() {
 		Scanner teclat = new Scanner(System.in);		
 		System.out.println("Que antorcha quieres apagar? Introduce su numero empezando por la izquierda (1-7)");
-		int seleccio=teclat.nextInt();
-		seleccio--;
-		if (antorchas[seleccio]==false) {System.out.println("Esa antorcha ya esta apagada");}
-		else {antorchas[seleccio]=false; System.out.println("Has apagado la antorcha la antorcha.");}
+	
+		try {
+			int seleccio=teclat.nextInt();
+			seleccio--;
+			if (antorchas[seleccio]==false) {System.out.println("Esa antorcha ya esta apagada");}
+			else {antorchas[seleccio]=false; System.out.println("Has apagado la antorcha la antorcha.");}
+			
+		} catch (Exception e) {
+			System.out.println("Esa no es una de las antorchas!");
+		}
+		
+	
+		
+		
 	}
 	
 	

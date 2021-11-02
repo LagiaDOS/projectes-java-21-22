@@ -209,11 +209,21 @@ public class main {
 			
 			if (arrayzones[zonaactual].items_terra.isEmpty()==false) {System.out.println("Que quieres coger?");
 			for (int i = 0; i < arrayzones[zonaactual].items_terra.size(); i++) {System.out.println(i +". " + arrayzones[zonaactual].items_terra.get(i).nom);}
-			int objecteagafar;
-			objecteagafar = teclat.nextInt();
-			player.inventari.add(arrayzones[zonaactual].items_terra.get(objecteagafar));
-			System.out.println("Cogiste el/la" + arrayzones[zonaactual].items_terra.get(objecteagafar).nom + "."); //tu lo tomaste cuerda
-			arrayzones[zonaactual].items_terra.remove(objecteagafar);
+			
+			try {
+				int objecteagafar;
+				objecteagafar = teclat.nextInt();
+				player.inventari.add(arrayzones[zonaactual].items_terra.get(objecteagafar));
+				System.out.println("Cogiste el/la" + arrayzones[zonaactual].items_terra.get(objecteagafar).nom + "."); //tu lo tomaste cuerda
+				arrayzones[zonaactual].items_terra.remove(objecteagafar);
+			} catch (Exception e) {
+				System.out.println("Introduce un numero de un objeto correcto");
+
+			}
+			
+			
+			
+			
 			}
 			break;
 			
@@ -226,11 +236,18 @@ public class main {
 			if (player.inventari.isEmpty()==false) {System.out.println("Que quieres dejar?");
 			for (int i = 0; i < player.inventari.size(); i++) {System.out.println(i +". " + player.inventari.get(i).nom);}
 
-			int objectetirar;
-			objectetirar = teclat.nextInt();
-			arrayzones[zonaactual].items_terra.add(player.inventari.get(objectetirar));
-			System.out.println("Dejaste el/la " + player.inventari.get(objectetirar).nom + " en el suelo.");
-			player.inventari.remove(objectetirar);
+			try {
+				int objectetirar;
+				objectetirar = teclat.nextInt();
+				arrayzones[zonaactual].items_terra.add(player.inventari.get(objectetirar));
+				System.out.println("Dejaste el/la " + player.inventari.get(objectetirar).nom + " en el suelo.");
+				player.inventari.remove(objectetirar);
+			} catch (Exception e) {
+				System.out.println("Introduce un numero de un objeto correcto");
+
+			}
+			
+		
 			}break;
 			
 			
@@ -272,8 +289,17 @@ public class main {
 			System.out.println("Que objeto quieres usar?");
 			for (int i = 0; i < player.inventari.size(); i++) {System.out.println(i +". " + player.inventari.get(i).nom);}
 			int seleccio = 1;
-			seleccio = teclat2.nextInt();
-			arrayzones[zonaactual].usaritem(player, seleccio);
+
+			
+			try {
+				seleccio = teclat2.nextInt();
+				arrayzones[zonaactual].usaritem(player, seleccio);
+			} catch (Exception e) {
+				System.out.println("Introduce un numero de objeto correcto");
+			}
+			
+			
+			
 			
 			}
 		break;

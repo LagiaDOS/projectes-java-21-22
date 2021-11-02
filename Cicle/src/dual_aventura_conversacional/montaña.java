@@ -72,36 +72,37 @@ public class montaña extends zona {
 	int opcio=0;
 
 	
-
-	
 	System.out.println("Decides hablar con " + nombre_guardia + " que quieres decirle?");
 	System.out.println("0. - Quien eres?");
 	System.out.println("1. - Que hay en la cima de la montaña?");
 	System.out.println("2. - Que puedo hacer para pasar?");
-	opcio = teclat.nextInt();
-
 	
-	switch (opcio) {
-	case 0: if (nombre_dado==false) {System.out.println("- Yo soy Gyoubu Oniwa! Identificate! - Te grita el hombre");
-	System.out.println(" Mi nombre es " +  player.nom +". - Le respondes");
-	nombreJ=player.nom;
-	nombre_dado=true;
-	nombre_guardia = "Gyoubu";
 	
-	}else {System.out.println("Acaso no me has escuchado?! Mi nombre es Gyoubu Oniwa!");}	break;	
 	
-	case 1: 	System.out.println("-El templo del señor Susanoo! Solo aquellos con el valor de derramar la sangre de sus enemigos tienen permitido pasar!");
-	break;	
-
-	case 2: 	System.out.println("- Demuestrame que eres en guerrero!");
-	break;	
-	
-
+	try {
+		opcio = teclat.nextInt();
+		switch (opcio) {
+		case 0: if (nombre_dado==false) {System.out.println("- Yo soy Gyoubu Oniwa! Identificate! - Te grita el hombre");
+		System.out.println(" Mi nombre es " +  player.nom +". - Le respondes");
+		nombreJ=player.nom;
+		nombre_dado=true;
+		nombre_guardia = "Gyoubu";
 		
+		}else {System.out.println("Acaso no me has escuchado?! Mi nombre es Gyoubu Oniwa!");}	break;	
 		
-	
-	default: break;
+		case 1: 	System.out.println("-El templo del señor Susanoo! Solo aquellos con el valor de derramar la sangre de sus enemigos tienen permitido pasar!");
+		break;	
+
+		case 2: 	System.out.println("- Demuestrame que eres en guerrero!");
+		break;	
+
+		default: break;
+		}
+	} catch (Exception e) {
+System.out.println("Eso no es algo que puedas decire!");
 	}
+	
+
 	
 
 	}

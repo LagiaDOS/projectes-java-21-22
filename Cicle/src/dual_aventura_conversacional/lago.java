@@ -124,53 +124,61 @@ public void introzona(jugador player)
 	public void parlar(jugador player){
 		Scanner teclat = new Scanner(System.in);		
 		
-		if (serpientes_muertas==false) {
-			if (espadasagradainventario==false) {
-			
-				if (risas == false) {
-					
-					System.out.println("Por algun motivo, decides hablar con las serpientes. Que quieres decirles?");
-					System.out.println("0. Quienes sois?");
-					System.out.println("1. Me dejais pasar a la torre?");
-					int opcio = teclat.nextInt();
-					
-					switch (opcio){
-					case 0:
+		
+		try {
+
+			if (serpientes_muertas==false) {
+				if (espadasagradainventario==false) {
+				
+					if (risas == false) {
 						
+						System.out.println("Por algun motivo, decides hablar con las serpientes. Que quieres decirles?");
+						System.out.println("0. Quienes sois?");
+						System.out.println("1. Me dejais pasar a la torre?");
+						int opcio = teclat.nextInt();
 						
-						if (presentadas == false) {
-						System.out.println("- Huh?! No estas aterrado?! Acaso al golpearte en la cabeza perdiste la capacidad de tener miedo? - Dice la del medio. - Hm, escucha nuestros nombres de nuevo, mortal! Pues somos Azume, Uzume e Izume, las hijas de Orochi! Tiembla ante nuestra presencia!\r\n"
-								+ "- Yo soy Izume! - Dice la de la derecha\r\n"
-								+ "- Hmpf! Y yo Uzume – Responde de mala manera la de la izquierda.");
-						presentadas= true;
+						switch (opcio){
+						case 0:
+							
+							
+							if (presentadas == false) {
+							System.out.println("- Huh?! No estas aterrado?! Acaso al golpearte en la cabeza perdiste la capacidad de tener miedo? - Dice la del medio. - Hm, escucha nuestros nombres de nuevo, mortal! Pues somos Azume, Uzume e Izume, las hijas de Orochi! Tiembla ante nuestra presencia!\r\n"
+									+ "- Yo soy Izume! - Dice la de la derecha\r\n"
+									+ "- Hmpf! Y yo Uzume – Responde de mala manera la de la izquierda.");
+							presentadas= true;
+							}
+							else {System.out.println("- Creo que el humano se ha roto – Dice izume – No izume, solo es idiota, ya le hemos responido hace nada y no se acuerda. - Le dice azume.");}
+							
+							
+							break;
+						case 1: 
+						
+								if (pregunta_pasar==false) {System.out.println("Tras varios segundos de silencio incomodo, las tres serpientes se ponen a reir de manera salvaje, derribando varios de los arboles de su alrededor con sus golpes. - Hahahahaha! No sabia que los mortales podian hacer humor asi. - Dice uzume. - Espera… el mortal lo dice en serio! - No...pfff… no puedes pasar...pfff – dice azume entre risas que intenta aguantarse.  Las 3 serpientes siguen riendose sin parar, y no estan prestandote atencion, de querer irte, este parece un buen momento para ello.");
+								risas = true;
+								pregunta_pasar=true;
+								}
+								else {
+									System.out.println("-Te crees que eso funcionara dos veces? - Dice uzume en tono engreido. - A diferencia de los tuyos… nosotras aprendemos de nuestros errores – Responde azume de forma engreida tambien. -Pfffffffffff hahahahahah! - Se rie izume de forma salvaje – Lo..pfff… lo siento hahahahahah… es que es tan.. pffffff gracioso! – Izume para… pfff! - Le escarmienta azume – Que nos lo…pfff… contagias! Hahahahahah! - Se rie uzume, mientras las tres empiezan a reir salvajemente.\r\n"
+											+ " ");
+								risas = true;	
+								}
+							
+							
+							
+							
+							break;
+						default: break;
 						}
-						else {System.out.println("- Creo que el humano se ha roto – Dice izume – No izume, solo es idiota, ya le hemos responido hace nada y no se acuerda. - Le dice azume.");}
-						
-						
-						break;
-					case 1: 
-					
-							if (pregunta_pasar==false) {System.out.println("Tras varios segundos de silencio incomodo, las tres serpientes se ponen a reir de manera salvaje, derribando varios de los arboles de su alrededor con sus golpes. - Hahahahaha! No sabia que los mortales podian hacer humor asi. - Dice uzume. - Espera… el mortal lo dice en serio! - No...pfff… no puedes pasar...pfff – dice azume entre risas que intenta aguantarse.  Las 3 serpientes siguen riendose sin parar, y no estan prestandote atencion, de querer irte, este parece un buen momento para ello.");
-							risas = true;
-							pregunta_pasar=true;
-							}
-							else {
-								System.out.println("-Te crees que eso funcionara dos veces? - Dice uzume en tono engreido. - A diferencia de los tuyos… nosotras aprendemos de nuestros errores – Responde azume de forma engreida tambien. -Pfffffffffff hahahahahah! - Se rie izume de forma salvaje – Lo..pfff… lo siento hahahahahah… es que es tan.. pffffff gracioso! – Izume para… pfff! - Le escarmienta azume – Que nos lo…pfff… contagias! Hahahahahah! - Se rie uzume, mientras las tres empiezan a reir salvajemente.\r\n"
-										+ " ");
-							risas = true;	
-							}
-						
-						
-						
-						
-						break;
-					default: break;
 					}
+					else {System.out.println("Las serpientes estan riendose de forma salvaje, no parecen poder reirse por el momento.");}
 				}
-				else {System.out.println("Las serpientes estan riendose de forma salvaje, no parecen poder reirse por el momento.");}
-			}
-			else {System.out.println("Las serpientes te estan mirando de forma atemorizada. No parecen dispuestas a hablar.");}
-		}else {System.out.println("Las serpiente estan muertas. Ya no puedes hablar con ellas.");}
+				else {System.out.println("Las serpientes te estan mirando de forma atemorizada. No parecen dispuestas a hablar.");}
+			}else {System.out.println("Las serpiente estan muertas. Ya no puedes hablar con ellas.");}
+		} catch (Exception e) {
+			System.out.println("Eso no es algo que puedas decir!");
+		}
+		
+		
 	}
 	
 

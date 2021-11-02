@@ -64,45 +64,48 @@ public void parlar(jugador player)
 	System.out.println("2. Tengo que rescatar a mi hermana. Hay algo que puedas darme para ayudarme?");
 	System.out.println("3. Podrias darme algun consejo?");
 	
-	int opcio = teclat.nextInt();
+	try {
+		int opcio = teclat.nextInt();
 
-	switch (opcio) {
-	case 0: System.out.println("- Este es un lugar sagrado bajo la proteccion de amaterasu. Los demonios no pueden entrar en este lugar. Mientras amaterasu nos siga protegiendo estaremos seguros."); break;
-	case 1: System.out.println("- Las leyendas dicen que amaterasu entrego su magatama a nuestros antepasados como un simbolo de su proteccion. Y hasta el momento, ha protegido el templo de los demonios.");break;
-	case 2: 
+		switch (opcio) {
+		case 0: System.out.println("- Este es un lugar sagrado bajo la proteccion de amaterasu. Los demonios no pueden entrar en este lugar. Mientras amaterasu nos siga protegiendo estaremos seguros."); break;
+		case 1: System.out.println("- Las leyendas dicen que amaterasu entrego su magatama a nuestros antepasados como un simbolo de su proteccion. Y hasta el momento, ha protegido el templo de los demonios.");break;
+		case 2: 
+			
+		if(agua_sagrada==false) {
+		System.out.println("-  Puedes tomar la poca agua sagrada que nos queda. Es eficaz contra los demonios, como las que raptaron a tu hermana. Ve con cuidado, joven, incluso con esta agua sagrada no deberias confiarte, los demonios son muy peligrosos.");
+		agua_sagrada = true;
+		objecte aguasagrada = new objecte(6, "Agua Sagrada", true);
+		items_terra.add(aguasagrada);
+		}	
+		else {System.out.println("- Me temo que no tengo nada mas que pueda ayudarte, joven.");}	
+		break;	
 		
-	if(agua_sagrada==false) {
-	System.out.println("-  Puedes tomar la poca agua sagrada que nos queda. Es eficaz contra los demonios, como las que raptaron a tu hermana. Ve con cuidado, joven, incluso con esta agua sagrada no deberias confiarte, los demonios son muy peligrosos.");
-	agua_sagrada = true;
-	objecte aguasagrada = new objecte(6, "Agua Sagrada", true);
-	items_terra.add(aguasagrada);
-	}	
-	else {System.out.println("- Me temo que no tengo nada mas que pueda ayudarte, joven.");}	
-	break;	
-	
-	case 3: 
+		case 3: 
+			
+		Random ran = new Random();
+		int next = ran.nextInt(7);
+		switch (next) {
+		case 0: System.out.println("- El mejor ataque es una buena defensa, pero solo defendiendote no puedes ganar nada."); break;
+		case 1: System.out.println("- El herrero esta forjando armas para todos, si necesitas alguna forma de defenderte, puedes pedirle alguna arma.");break;
+		case 2: System.out.println("- Las serpientes blancas estan acorazadas, ninguna arma mortal puede herirlas, pero se dice que susanoo las mato con su espada."); break;
+		case 3: System.out.println("- Amaterasu tenia 2 hermanos, cada uno con sus reliquias. Se dice que si estas se juntan, ocurrira un milagro.");break;
+		case 4: System.out.println("- Dicen que la estatua de la cueva es una guardiana a secretos divinos. Pero ningun mortal a podido entenderla.");break;
+		case 5: System.out.println("- Se dice que susanoo concede su poder a los que consiguen superar sus desafios.");break;
+		case 6: System.out.println("- El agua sagrada es letal contra los demonios.");break;
 		
-	Random ran = new Random();
-	int next = ran.nextInt(7);
-		
-	switch (next) {
-	case 0: System.out.println("- El mejor ataque es una buena defensa, pero solo defendiendote no puedes ganar nada."); break;
-	case 1: System.out.println("- El herrero esta forjando armas para todos, si necesitas alguna forma de defenderte, puedes pedirle alguna arma.");break;
-	case 2: System.out.println("- Las serpientes blancas estan acorazadas, ninguna arma mortal puede herirlas, pero se dice que susanoo las mato con su espada."); break;
-	case 3: System.out.println("- Amaterasu tenia 2 hermanos, cada uno con sus reliquias. Se dice que si estas se juntan, ocurrira un milagro.");break;
-	case 4: System.out.println("- Dicen que la estatua de la cueva es una guardiana a secretos divinos. Pero ningun mortal a podido entenderla.");break;
-	case 5: System.out.println("- Se dice que susanoo concede su poder a los que consiguen superar sus desafios.");break;
-	case 6: System.out.println("- El agua sagrada es letal contra los demonios.");break;
-	
-	default: break;
-	}	
+		default: break;
+		}	
+			
+			
+			
+		break;
 		
 		
-		
-	break;
-	
-	
-	default: break;
+		default: break;
+		}
+	} catch (Exception e) {
+		System.out.println("Eso no es algo que puedas decir!");
 	}
 	
 	

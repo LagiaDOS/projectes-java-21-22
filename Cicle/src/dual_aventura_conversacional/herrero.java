@@ -55,26 +55,39 @@ public class herrero extends zona {
 		System.out.println("Decides hablar el Herrero. Que quieres?");
 		System.out.println("0. - Podrias ser mas educado?");
 		System.out.println("1. - Quiero rescatar a mi hermana.  Podrias darme algo con lo que defenderme?");
-		int opcio = teclat.nextInt();
+	
 		
-		switch (opcio){
-		case 0: System.out.println("Chaval, llevo  dias trabajando sin cesar con tal de armar a todo el mundo. Todo segundo que no estoy trabajando es una persona menos a la que no armo. Y cuando esos demonios vuelvan, agradeceras hasta la ultima lanza. Y ahora, que es lo que quieres?");break;
-		
-		case 1: 
-			
-			if(espada==false) {
-			System.out.println("- Huh? Acaso te crees que voy a dejar que te lleves algo en tu mision inutil? Por mucho que me enorgullezca de mi trabajo no haran ni cosquillas a esas serpientes del lago.\r\n"
-					+ "- Me da igual, si no lo intento no lo conseguire. - Le respondes\r\n"
-					+ "-Hmpr… no vas a irte, verdad? Esta bien, llevate UNA sola espada, y nada mas. Y no molestes mas! - El herrero deja una espada en una mesa, lista para que la cojas tu.");
-			espada=true;
-			objecte espada = new objecte(1, "Espada", true);
-			items_terra.add(espada);
-			}
-			else {System.out.println("- Huh? Ya te he dado una espada.");}
+		try {
 
-			break;
-		default: break;
+			int opcio = teclat.nextInt();
+			switch (opcio){
+			case 0: System.out.println("Chaval, llevo  dias trabajando sin cesar con tal de armar a todo el mundo. Todo segundo que no estoy trabajando es una persona menos a la que no armo. Y cuando esos demonios vuelvan, agradeceras hasta la ultima lanza. Y ahora, que es lo que quieres?");break;
+			
+			case 1: 
+				
+				if(espada==false) {
+				System.out.println("- Huh? Acaso te crees que voy a dejar que te lleves algo en tu mision inutil? Por mucho que me enorgullezca de mi trabajo no haran ni cosquillas a esas serpientes del lago.\r\n"
+						+ "- Me da igual, si no lo intento no lo conseguire. - Le respondes\r\n"
+						+ "-Hmpr… no vas a irte, verdad? Esta bien, llevate UNA sola espada, y nada mas. Y no molestes mas! - El herrero deja una espada en una mesa, lista para que la cojas tu.");
+				espada=true;
+				objecte espada = new objecte(1, "Espada", true);
+				items_terra.add(espada);
+				}
+				else {System.out.println("- Huh? Ya te he dado una espada.");}
+
+				break;
+			default: break;
+			}
+		} catch (Exception e) {
+			System.out.println("Eso no es algo que puedas decir!");
 		}
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

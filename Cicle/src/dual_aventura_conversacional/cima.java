@@ -239,23 +239,28 @@ else {		System.out.println("Soplas en una de las velas, apagandola. Un instante 
 			System.out.println("0. - Quien eres?");
 			System.out.println("1. - Que es este lugar?");
 			System.out.println("2. - Han secuestrado a mi hermana. Necesito ayuda para rescatarla.");
-			opcio = teclat.nextInt();
-	
 			
-			switch (opcio) {
-			case 0: System.out.println("- ya te lo he dicho, soy  Susanoo, dios de la guerra y las tormentas. No me hagas repetirlo"); break;
-			case 1:	System.out.println("- Mmh… este lugar era el templo de las tormentas, donde yo formaba a mis soldados y enviaba relampagos a todo el reino. Estos tiempos ya pasaron… este lugar es solo una ruina de lo que era, una mala brisa y se derrumbara todo. "); break;
+			try {
+				opcio = teclat.nextInt();
+				switch (opcio) {
+				case 0: System.out.println("- ya te lo he dicho, soy  Susanoo, dios de la guerra y las tormentas. No me hagas repetirlo"); break;
+				case 1:	System.out.println("- Mmh… este lugar era el templo de las tormentas, donde yo formaba a mis soldados y enviaba relampagos a todo el reino. Estos tiempos ya pasaron… este lugar es solo una ruina de lo que era, una mala brisa y se derrumbara todo. "); break;
+				
+				
+				case 2: 
+					System.out.println("Hmmh… es acaso ese mi problema? Soy un dios, no un guardia de tu pueblo. Pideselo a ellos, no a mi.");
+					System.out.println("- Nadie del pueblo podia hacer nada, eran demasiado fuertes. - Le dices");
+					System.out.println("- Hmpf, vaya guardias… guerreros mas lamentables. Ni que os hubieran atacado un demonio.");
+					System.out.println("- Si nos ataco un demonio. Uno lunar, acompañado de unas serpientes blancas gigantes.");
+				System.out.println("");
+				System.out.println("Susanoo se levanta, revelando su altura, de casi 4 metros. - Si lo que dices es verdad, estamos en un problema, uno de proporciones que superan a un mortal como tu. Solo un poder divino puede ayudarte. - Te dice el, en tono preocupado. - Me ayudaras entonces? - Le preguntas – Con una condicion. Combate contra mi. Si consigues herirme te dare mi poder. - Te responde el, notando cierto tono de sed de sangre en su tono de voz. - Tu diras cuando empieza el duelo."); demonio_mostrado = true;
+				default: break;				
+				}
+			} catch (Exception e) {
+			System.out.println("Eso no es algo que puedas decir!");
+			}
 			
-			
-			case 2: 
-				System.out.println("Hmmh… es acaso ese mi problema? Soy un dios, no un guardia de tu pueblo. Pideselo a ellos, no a mi.");
-				System.out.println("- Nadie del pueblo podia hacer nada, eran demasiado fuertes. - Le dices");
-				System.out.println("- Hmpf, vaya guardias… guerreros mas lamentables. Ni que os hubieran atacado un demonio.");
-				System.out.println("- Si nos ataco un demonio. Uno lunar, acompañado de unas serpientes blancas gigantes.");
-			System.out.println("");
-			System.out.println("Susanoo se levanta, revelando su altura, de casi 4 metros. - Si lo que dices es verdad, estamos en un problema, uno de proporciones que superan a un mortal como tu. Solo un poder divino puede ayudarte. - Te dice el, en tono preocupado. - Me ayudaras entonces? - Le preguntas – Con una condicion. Combate contra mi. Si consigues herirme te dare mi poder. - Te responde el, notando cierto tono de sed de sangre en su tono de voz. - Tu diras cuando empieza el duelo."); demonio_mostrado = true;
-			default: break;
-			}	
+				
 		}
 			
 	}

@@ -61,38 +61,48 @@ public class cueva_esfinge extends zona {
 		System.out.println("La estatua ha hablado de alguna forma, asi que te planteas hablarle de vuelta. Que quieres decirle?");
 		System.out.println("0.  Eh? Que estas diciendo?");
 		System.out.println("1. (responder a su acertijo)");
+
 		
 		opcio= teclat.nextInt();
 		teclat.nextLine();
 		
-		switch (opcio) {
-		case 0: System.out.println("- Rojo de la tierra, de hermoso color teñida, tras mis mil agujas me hallaras escondida. Que soy? - Repite en tono monótono.");break;
-		case 1: 
-			//la respuesta es "rosa"
-			System.out.println("Introduce la respuesta que quieres darle a la estatua.");
-			
-			String respuesta;
-			respuesta = teclat.nextLine();	
-			
-			//posar respuesta a tot minuscules
-			respuesta = respuesta.toLowerCase();
-			
-			//comprovar si "respuesta" conte "rosa"
-			boolean rosa = respuesta.contains("rosa");
 		
+		try {
+			switch (opcio) {
+			case 0: System.out.println("- Rojo de la tierra, de hermoso color teñida, tras mis mil agujas me hallaras escondida. Que soy? - Repite en tono monótono.");break;
+			case 1: 
+				//la respuesta es "rosa"
+				System.out.println("Introduce la respuesta que quieres darle a la estatua.");
+				
+				String respuesta;
+				respuesta = teclat.nextLine();	
+				
+				//posar respuesta a tot minuscules
+				respuesta = respuesta.toLowerCase();
+				
+				//comprovar si "respuesta" conte "rosa"
+				boolean rosa = respuesta.contains("rosa");
 			
-			if (rosa==true) {//correcte
-				System.out.println("- Eres una rosa – Le dices. - Tu respuesta… es correcta. - Dice la estatua. \r\n"
-					+ "Notas como algo se mueve en las paredes, y a tu izquierda y derecha se abren unas camaras ocultas.");
-					enigma_resuelto=true;}
-			
-			else {//incorrecte
-			System.out.println("No hay respuesta de la estatua... tu respuesta parece equivocada.");
+				
+				if (rosa==true) {//correcte
+					System.out.println("- Eres una rosa – Le dices. - Tu respuesta… es correcta. - Dice la estatua. \r\n"
+						+ "Notas como algo se mueve en las paredes, y a tu izquierda y derecha se abren unas camaras ocultas.");
+						enigma_resuelto=true;}
+				
+				else {//incorrecte
+				System.out.println("No hay respuesta de la estatua... tu respuesta parece equivocada.");
+				}
+				break;
+				
+			default: break;
 			}
-			break;
-			
-		default: break;
-		}
+		} catch (Exception e) {
+System.out.println("Eso no es algo que puedas decir!");		}
+		
+		
+		
+		
+		
 	}else {System.out.println("La estatua no parece hablar mas. Hablar ahora parece una perdida de tiempo. ");}	
 		
 		
