@@ -87,7 +87,7 @@ public class main {
 	lago zona_lago = new lago("el lago.", "zona_lago", false, "zona_torre_base", "zona_bosque", null, null, inventarilago, false, false, false, false, false);
 	
 	ArrayList<objecte> inventaribase = new ArrayList<objecte>();
-	torre_base zona_torre_base = new torre_base("la base de la Torre.", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, inventaribase);
+	torre_base zona_torre_base = new torre_base("la base de la Torre.", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, inventaribase, false);
 	
 	ArrayList<objecte> inventarimedio = new ArrayList<objecte>();
 	torre_medio zona_torre_medio = new torre_medio("el medio de la Torre.", "zona_torre_medio", false, null, null, "zona_torre_cima", "zona_torre_base", inventarimedio);
