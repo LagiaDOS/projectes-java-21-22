@@ -96,7 +96,7 @@ public class montaña extends zona {
 		case 2: 	System.out.println("- Demuestrame que eres en guerrero!");
 		break;	
 
-		default: break;
+		default: System.out.println("Eso no es algo que puedas decir!"); break;
 		}
 	} catch (Exception e) {
 System.out.println("Eso no es algo que puedas decire!");

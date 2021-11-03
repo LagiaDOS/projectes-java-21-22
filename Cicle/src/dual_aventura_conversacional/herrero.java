@@ -76,7 +76,7 @@ public class herrero extends zona {
 				else {System.out.println("- Huh? Ya te he dado una espada.");}
 
 				break;
-			default: break;
+			default: System.out.println("Eso no es algo que puedas decir!"); break;
 			}
 		} catch (Exception e) {
 			System.out.println("Eso no es algo que puedas decir!");

@@ -90,7 +90,7 @@ public class main {
 	torre_base zona_torre_base = new torre_base("la base de la Torre.", "zona_torre_base", false, null, "zona_lago", "zona_torre_medio", null, inventaribase, false);
 	
 	ArrayList<objecte> inventarimedio = new ArrayList<objecte>();
-	torre_medio zona_torre_medio = new torre_medio("el medio de la Torre.", "zona_torre_medio", false, null, null, "zona_torre_cima", "zona_torre_base", inventarimedio);
+	torre_medio zona_torre_medio = new torre_medio("el medio de la Torre.", "zona_torre_medio", false, null, null, "zona_torre_cima", "zona_torre_base", inventarimedio, false);
 	
 	ArrayList<objecte> inventaricuspide = new ArrayList<objecte>();
 	torre_cima zona_torre_cima = new torre_cima("la cuspide de la Torre.", "zona_torre_cima", false, null, null, null, "zona_torre_medio", inventaricuspide);
@@ -380,8 +380,8 @@ public static boolean check_pasar(int z, zona[] arrayzones, int zonaactual) {
 	case 8: return zona_espejo.potmoure(zona_cueva_esfinge);
 	case 9: return true;
 	case 10: return zona_torre_base.potmoure(zona_lago);
-	case 11: break;
-	case 12: break;
+	case 11: return zona_torre_medio.potmoure(zona_torre_base);
+	case 12: return zona_torre_cima.potmoure(zona_torre_medio);
 	default: return false;
 	}
 		

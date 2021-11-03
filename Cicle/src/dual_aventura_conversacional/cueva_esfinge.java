@@ -94,7 +94,7 @@ public class cueva_esfinge extends zona {
 				}
 				break;
 				
-			default: break;
+			default: System.out.println("Eso no es algo que puedas decir!"); break;
 			}
 		} catch (Exception e) {
 System.out.println("Eso no es algo que puedas decir!");		}

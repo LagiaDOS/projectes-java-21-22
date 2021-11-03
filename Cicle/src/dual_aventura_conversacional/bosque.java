@@ -24,7 +24,7 @@ public class bosque extends zona {
 	
 	public boolean potmoure(lago zona_lago) {
 		//cada zona te el seu potmoure propi amb les condicions propies. Aixo es nomes un default por si acaso
-		if (zona_lago.risas == true) {return true;}
+		if (zona_lago.risas == true || zona_lago.serpientes_muertas==true) {return true;}
 		else {return false;}	
 	}
 	

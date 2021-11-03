@@ -254,7 +254,7 @@ else {		System.out.println("Soplas en una de las velas, apagandola. Un instante 
 					System.out.println("- Si nos ataco un demonio. Uno lunar, acompañado de unas serpientes blancas gigantes.");
 				System.out.println("");
 				System.out.println("Susanoo se levanta, revelando su altura, de casi 4 metros. - Si lo que dices es verdad, estamos en un problema, uno de proporciones que superan a un mortal como tu. Solo un poder divino puede ayudarte. - Te dice el, en tono preocupado. - Me ayudaras entonces? - Le preguntas – Con una condicion. Combate contra mi. Si consigues herirme te dare mi poder. - Te responde el, notando cierto tono de sed de sangre en su tono de voz. - Tu diras cuando empieza el duelo."); demonio_mostrado = true;
-				default: break;				
+				default: System.out.println("Eso no es algo que puedas decir!"); break;				
 				}
 			} catch (Exception e) {
 			System.out.println("Eso no es algo que puedas decir!");

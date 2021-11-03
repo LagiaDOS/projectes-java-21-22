@@ -167,7 +167,7 @@ public void introzona(jugador player)
 							
 							
 							break;
-						default: break;
+						default: System.out.println("Eso no es algo que puedas decir!"); break;
 						}
 					}
 					else {System.out.println("Las serpientes estan riendose de forma salvaje, no parecen poder reirse por el momento.");}

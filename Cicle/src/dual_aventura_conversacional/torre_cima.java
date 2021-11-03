@@ -10,4 +10,10 @@ public class torre_cima extends zona {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public boolean potmoure(torre_medio zona_torre_medio) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
