@@ -48,12 +48,16 @@ public class montaña extends zona {
 	
 	public void introzona(jugador player) 
 	{
-		if (entrat == true) {System.out.println("Tras caminar durante cerca de una hora, llegas finalmente a la base de la montaña del relampago. Anillos de nubes negruzcas se arremolinan alrededor de su cima, mientras constantes truenos hacen retumbar la montaña entera.\r\n"
-				+ nombre_guardia + "esta protegiendo el camino a la cima, como la ultima vez que lo viste.");}
+		if (entrat == true) {System.out.println("Tras caminar durante cerca de una hora, llegas finalmente a la base de la montaña del relampago. \r\n"
+				+ "Anillos de nubes negruzcas se arremolinan alrededor de su cima, mientras constantes truenos hacen retumbar la montaña entera."
+				+ nombre_guardia + " esta protegiendo el camino a la cima, como la ultima vez que lo viste.");}
 		else {System.out.println(
-				"Tras caminar durante cerca de una hora, llegas finalmente a la base de la montaña del relampago. Anillos de nubes negruzcas se arremolinan alrededor de su cima, mientras constantes truenos hacen retumbar la montaña entera.\r\n"+
-				"Te tiemblan las piernas, pero haras lo que sea necesario para recuperar a tu hermana. Segun empiezas a subir el sendero poco a poco, una voz te grita: \r\n"
-				+ "- Alto ahi! - De un salto baja enfrente tuya un hombre musculoso, cubierto en una armadura de placas y cadenas, empuñando una lanza mas grande que ti mismo y un escudo de metal mas similar a una pared que una herramienta de guerra \r\n"
+				
+				
+				"Tras caminar durante cerca de una hora, llegas finalmente a la base de la montaña del relampago. Anillos de nubes negruzcas se arremolinan alrededor de su cima, \r\n"
+				+ "mientras constantes truenos hacen retumbar la montaña entera. Te tiemblan las piernas, pero haras lo que sea necesario para recuperar a tu hermana. Segun empiezas \r\n"
+				+ "a subir el sendero poco a poco, una voz te grita: - Alto ahi! - De un salto baja enfrente tuya un hombre musculoso, cubierto en una armadura de placas y cadenas, empuñando \r\n"
+				+ "una lanza mas grande que ti mismo y un escudo de metal mas similar a una pared que una herramienta de guerra \r\n"
 				+ "– Esta montaña es un santuario para guerreros! Aquellos incapaces de empuñar un arma no tienen lugar aquí! Marchate, o afrenta las consecuencias de tu intrusion.\r\n"
 				); entrat = true;}		
 	}
@@ -130,7 +134,8 @@ System.out.println("Eso no es algo que puedas decire!");
 		{
 		case 1: 
 		System.out.println("Desenfundas tu espada, enseñandosela a " + nombre_guardia + ".");
-		if(espada_enseñada==false){System.out.println(" - Hmmm… una niña pequeña seria mas guerrera que tu, pero supongo que tecnicamente eres un guerrero… puedes pasar "+  nombreJ + ". Mientras enfundas tu espada " + nombre_guardia + " se aparta dejandote paso al sendero que sube a la cima de la montaña. "); espada_enseñada=true;	}
+		if(espada_enseñada==false){System.out.println(" - Hmmm… una niña pequeña seria mas guerrera que tu, pero supongo que tecnicamente eres un guerrero… puedes pasar "+  nombreJ + ". \r\n"
+				+ "Mientras enfundas tu espada " + nombre_guardia + " se aparta dejandote paso al sendero que sube a la cima de la montaña. "); espada_enseñada=true;	}
 		else {System.out.println("- Hm?! Ya me has enseñado tu espada! Puedes pasar! Acaso no me has escuchado?! TENGO QUE GRITAR MAS PARA QUE ME ESCUCHES?! - Te grita " + nombre_guardia + ", dejandote casi sordo.");}
 		break;	
 		default: System.out.println("No se te ocurre como usar el/la " + player.inventari.get(seleccio).nom + " aqui puede servir de algo.");break;}

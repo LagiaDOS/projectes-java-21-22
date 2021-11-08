@@ -42,7 +42,8 @@ public void setPuzleresolt(boolean puzleresolt) {
 		}
 		
 		
-		else {System.out.println("Entrando por el porton abierto de la torre, llegas a la base de esta. Estas en una enorma camara circular, sostenida por 2 gruesas columnas de piedra. Las paredes estan decoradas con intrincados murales, representando una noche eterna, gobernada por una figura femenina, que se alza por encima de otra figura femenina, que yace muerta en el suelo.\r\n"
+		else {System.out.println("Entrando por el porton abierto de la torre, llegas a la base de esta. Estas en una enorma camara circular, sostenida por 2 gruesas columnas de piedra. \r\n"
+				+ "Las paredes estan decoradas con intrincados murales, representando una noche eterna, gobernada por una figura femenina, que se alza por encima de otra figura femenina, que yace muerta en el suelo."
 				+ "\r\n"
 				+ "Al fondo de la camara hay un porton de piedra cerrado. Ves una cerradura, pero no una llave. Grabado al lado de esta cerradura ves escrito burdamente “Los susurros son la llave”. "); entrat = true;}		
 	}

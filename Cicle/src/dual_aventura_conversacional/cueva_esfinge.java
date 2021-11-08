@@ -29,17 +29,13 @@ public class cueva_esfinge extends zona {
 		if (entrat == true) {
 			System.out.println("Estas en la cueva del bosque. El goteo del agua es molesto, pero tolerable.");
 		
-			if (enigma_resuelto){System.out.println("La estatua no esta haciendo nada, \r\n"
-					+ "y hay dos caminos a tu izquierda y derecha, \r\n"
-					+ "que se han abierto en la pared.");}
+			if (enigma_resuelto){System.out.println("La estatua no esta haciendo nada,y hay dos caminos a tu izquierda y derecha, que se han abierto en la pared.");}
 			else {System.out.println("La estatua te observa con sus ojos petreos, esperando una respuesta.");}
 		}
 		
 		
-		else {	System.out.println("Bajando por el camino del bosque llegas a la Caverna Espejada, \r\n"
-				+ "una cueva cercana al pueblo, en busca de cualquier cosa que pueda ayudarte en tu mision. \r\n"
-				+ "Tras bajar por la entrada, llegas a una sala mas o menos rectangular. \r\n"
-				+ "Del techo gotea agua, formando charcos en la piedra irregular. \r\n"
+		else {	System.out.println("Bajando por el camino del bosque llegas a la Caverna Espejada,una cueva cercana al pueblo, en busca de cualquier cosa que pueda ayudarte en tu mision. \r\n"
+				+ "Tras bajar por la entrada, llegas a una sala mas o menos rectangular.Del techo gotea agua, formando charcos en la piedra irregular. \r\n "
 				+ "Delante tuya , engastada en la pared hay una estatua muy desgastada, de aproximadamente tu altura. \r\n"
 				+ "Cuesta distintguir  que representa exactamente, pero parece algun animal con cabeza de mujer. Esta con los ojos cerrados.\r\n"
 				+ "\r\n"

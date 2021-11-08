@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class templo extends zona {
 
 	boolean magatama_conseguida;
-
 	boolean agua_sagrada=false;
 	
 	public boolean isMagatama_conseguida() {
@@ -27,8 +26,11 @@ public templo(String nom, String id, Boolean entrat, String zona_adalt, String z
 	
 public void introzona(jugador player) 
 {
-	if (entrat == true) {System.out.println("Estas en el templo, descansando momentaneamente. El ambiente te relaja. El sacerdote esta ayudando a los heridos y dando consejo a todos.");}
-	else {System.out.println("Subiendo a la parte mas alta del pueblo, subes hasta el templo. Desde la entrada puedes ver todo el pueblo, el lago y el bosque os rodea, sin mencionar la torre que surgio del lago. El interior del templo esta mucho mas ajetreado y caotico que de costumbre. Mucha gente, cuyos hogares fueron destruidos en el ataque, se han refugiado en el templo, esperando que los demonios no ataquen de nuevo. La estatua de la diosa Amaterasu se alza en el medio del templo, con su magatama colgando del cuello. El Sacerdote esta guiando y aconsejando a todos los que puede, y al verte te dice – Bienvenido, has venido buscando consejo tambien?"); entrat = true;}		
+	if (entrat == true) {System.out.println("Estas en el templo, descansando momentaneamente. El ambiente te relaja. El sacerdote esta ayudando a los heridos y dando consejo a todos. ");}
+	else {System.out.println("Subiendo a la parte mas alta del pueblo, subes hasta el templo. Desde la entrada puedes ver todo el pueblo, el lago y el bosque os rodea, sin mencionar la torre que surgio del lago.\r\n "
+			+ "El interior del templo esta mucho mas ajetreado y caotico que de costumbre. Mucha gente, cuyos hogares fueron destruidos en el ataque, se han refugiado en el templo, esperando que los demonios no ataquen de nuevo. \r\n"
+			+ "La estatua de la diosa Amaterasu se alza en el medio del templo, con su magatama colgando del cuello. El Sacerdote esta guiando y aconsejando a todos los que puede, y al verte te dice \r\n"
+			+ "– Bienvenido, has venido buscando consejo tambien?"); entrat = true;}		
 
 	boolean espadasagrada=false;
 	boolean espejo=false;
@@ -42,7 +44,9 @@ public void introzona(jugador player)
 
 	if (espejo == true && espadasagrada == true && magatama_conseguida == false) 
 	{
-		System.out.println("Notas como el espejo y la murakumo brillan, y al sacarlas, un haz de luz surge de cada uno de los objetos, juntandose en la magatama que amaterasu lleva en su cuello, la cual tambien empieza a brillar. Al ocurrir eso, todo el mundo se queda en silencio, observandote. - Oh, asi que ha llegado el momento. - Dice el sacerdote. -Acercate, joven, toma la magatama sagrada. Desconozco que  te deparara el destino, pero la magatama sera parte esencial de eso.");
+		System.out.println("Notas como el espejo y la murakumo brillan, y al sacarlas, un haz de luz surge de cada uno de los objetos, juntandose en la magatama que amaterasu lleva en su cuello, la cual tambien empieza a brillar. \r\n"
+				+ "Al ocurrir eso, todo el mundo se queda en silencio, observandote. \r\n"
+				+ "- Oh, asi que ha llegado el momento. - Dice el sacerdote. -Acercate, joven, toma la magatama sagrada. Desconozco que  te deparara el destino, pero la magatama sera parte esencial de eso.");
 		objecte magatama = new objecte(3, "Magatama Sagrada", true);
 		items_terra.add(magatama);
 		magatama_conseguida = true;
@@ -73,7 +77,8 @@ public void parlar(jugador player)
 		case 2: 
 			
 		if(agua_sagrada==false) {
-		System.out.println("-  Puedes tomar la poca agua sagrada que nos queda. Es eficaz contra los demonios, como las que raptaron a tu hermana. Ve con cuidado, joven, incluso con esta agua sagrada no deberias confiarte, los demonios son muy peligrosos.");
+		System.out.println("-  Puedes tomar la poca agua sagrada que nos queda. Es eficaz contra los demonios, como las que raptaron a tu hermana. \r\n"
+				+ "Ve con cuidado, joven, incluso con esta agua sagrada no deberias confiarte, los demonios son muy peligrosos.");
 		agua_sagrada = true;
 		objecte aguasagrada = new objecte(6, "Agua Sagrada", true);
 		items_terra.add(aguasagrada);

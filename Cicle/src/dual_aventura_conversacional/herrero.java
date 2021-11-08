@@ -27,7 +27,10 @@ public class herrero extends zona {
 	public void introzona(jugador player) 
 	{
 		if (entrat == true) {System.out.println("Bajando por el camino llegas al herrero, que sigue forjando. Esta aun ocupado, y te dice que seas rapido.");}
-		else {System.out.println("Bajando por el camino  llegas al Herrero. Segun entras a la herreria, ves varias lanzas y espadas apiladas en una pared, junto con armaduras rudimentarias de hierro. Ves al Herrero forjando otra espada. Por su aspecto, debe haber estado todos los dias desde el ataque forjando, una capa de ollin y restos de metal le ensucian tanto la ropa como la piel, y no parece haberse limpiado desde entonces. Al verte, el dice “Hm? Ah, el chaval que le raptaron la hermana. Ando muy ocupado, si quieres algo, se rapido. - Te dice de forma contundente."); entrat = true;}		
+		
+		else {System.out.println("Bajando por el camino  llegas al Herrero. Segun entras a la herreria, ves varias lanzas y espadas apiladas en una pared, junto con armaduras rudimentarias de hierro. \r\n"
+				+ "Ves al Herrero forjando otra espada. Por su aspecto, debe haber estado todos los dias desde el ataque forjando, una capa de ollin y restos de metal le ensucian tanto la ropa como la piel, \r\n "
+				+ "y no parece haberse limpiado desde entonces. Al verte, el dice “Hm? Ah, el chaval que le raptaron la hermana. Ando muy ocupado, si quieres algo, se rapido. - Te dice de forma contundente."); entrat = true;}		
 	}
 		
 	public void usaritem(jugador player, int seleccio) 
@@ -61,7 +64,8 @@ public class herrero extends zona {
 
 			int opcio = teclat.nextInt();
 			switch (opcio){
-			case 0: System.out.println("Chaval, llevo  dias trabajando sin cesar con tal de armar a todo el mundo. Todo segundo que no estoy trabajando es una persona menos a la que no armo. Y cuando esos demonios vuelvan, agradeceras hasta la ultima lanza. Y ahora, que es lo que quieres?");break;
+			case 0: System.out.println("Chaval, llevo  dias trabajando sin cesar con tal de armar a todo el mundo. Todo segundo que no estoy trabajando es una persona menos a la que no armo. \r\n"
+					+ "Y cuando esos demonios vuelvan, agradeceras hasta la ultima lanza. Y ahora, que es lo que quieres?");break;
 			
 			case 1: 
 				

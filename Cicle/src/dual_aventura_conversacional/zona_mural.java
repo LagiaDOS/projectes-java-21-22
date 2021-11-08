@@ -27,7 +27,12 @@ public class zona_mural extends zona {
 		if (entrat == true) {System.out.println("Estas en la sala del mural iluminado con las antorchas.\r\n"
 				+ "Las antochas estan encedidas en este orden:\r\n"
 				+ "[X][X][  ][X][  ][X][  ]");}
-		else {System.out.println("Detras de la pared encuentras una extraña sala escarvada en la cueva de la roca. Lo mas significativo que encuentras es un mural al fondo, iluminado por unas antorchas, algunas de ellas apagadas. El mural representa dos figuras femeninas gemelas entrelazas. El siguente mural contiene las dos figuras, ahora separadas, enfrentandose en una batalla. El ultimo tiene a una de las figuras cayendo por un abismo oscuro, mientras la otra se alza en medio de un dia soleado. Al lado de una de las antorchas ves una suelta en el suelo, aun encendida.\r\n"
+		
+		else {System.out.println("Detras de la pared encuentras una extraña sala escarvada en la cueva de la roca. Lo mas significativo que encuentras es un mural al fondo, iluminado por unas antorchas, algunas de ellas apagadas. \r\n"
+				+ "El mural representa dos figuras femeninas gemelas entrelazas. \r\n"
+				+ "El siguente mural contiene las dos figuras, ahora separadas, enfrentandose en una batalla. \r\n"
+				+ "El ultimo tiene a una de las figuras cayendo por un abismo oscuro, mientras la otra se alza en medio de un dia soleado. \r\n"
+				+ "Al lado de una de las antorchas ves una suelta en el suelo, aun encendida.\r\n"
 				+ "\r\n"
 				+ "Las antochas estan encedidas en este orden:\r\n"
 				+ "[X][X][  ][X][  ][X][  ]"); entrat = true;

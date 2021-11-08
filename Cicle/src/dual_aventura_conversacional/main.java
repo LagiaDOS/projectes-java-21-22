@@ -51,7 +51,11 @@ public class main {
 	
 	
 	player.inventari.add(espada);
-	player.inventari.add(murakumo);
+	//player.inventari.add(espejo);
+	//player.inventari.add(magatama);
+	//player.inventari.add(murakumo);
+	//player.inventari.add(antorcha);
+	//player.inventari.add(aguasagrada);
 
 	
 	//inicialitzar zones
@@ -93,7 +97,7 @@ public class main {
 	torre_medio zona_torre_medio = new torre_medio("el medio de la Torre.", "zona_torre_medio", false, null, null, "zona_torre_cima", "zona_torre_base", inventarimedio, false);
 	
 	ArrayList<objecte> inventaricuspide = new ArrayList<objecte>();
-	torre_cima zona_torre_cima = new torre_cima("la cuspide de la Torre.", "zona_torre_cima", false, null, null, null, "zona_torre_medio", inventaricuspide);
+	torre_cima zona_torre_cima = new torre_cima("la cuspide de la Torre.", "zona_torre_cima", false, null, null, null, "zona_torre_medio", inventaricuspide, false, false, false, false);
 	
 	zona[] arrayzones = {zona_bosque, zona_montaña, zona_cima, zona_templo, zona_pueblo, zona_herrero, zona_cueva, zona_grabado, zona_espejo, zona_lago, zona_torre_base, zona_torre_medio, zona_torre_cima};
 	

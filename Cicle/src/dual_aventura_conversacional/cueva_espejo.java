@@ -42,9 +42,13 @@ public class cueva_espejo extends zona {
 	public void introzona(jugador player) 
 	{
 		if (entrat == true) {System.out.println("El pequeño santuario sigue como siempre. La escritura del marco dice “El espejo de la verdad se revelara cuando la luz y la oscuridad de las hermanas se muestren delante suya.”");}
-		else {System.out.println("Tras la puerta oculta encuentras una extraña sala. Delante tuya hay varias antorchas apagadas, detras de las cuales hay un pequeño santuario de madera y piedra. El santuario tiene iconografia solar y lunar, en las mitades derecha e izquierda respectivamente. \r\n"
+		
+		else {System.out.println("Tras la puerta oculta encuentras una extraña sala. Delante tuya hay varias antorchas apagadas, detras de las cuales hay un pequeño santuario de madera y piedra. \r\n"
+				+ "El santuario tiene iconografia solar y lunar, en las mitades derecha e izquierda respectivamente. \r\n"
 				+ "\r\n"
-				+ "En medio del santuario ves un receptaculo, en el que dentro reposa un espejo antiguo encima de un cojin delicadamente tejido. Intentas coger el espejo, pero una especie de campo de fuerza impide que puedas cogerlo. Ves como en el marco del receptaculo esta escrito “El espejo de la verdad se revelara cuando la luz y la oscuridad de las hermanas se muestren delante suya.”"); entrat = true;}		
+				+ "En medio del santuario ves un receptaculo, en el que dentro reposa un espejo antiguo encima de un cojin delicadamente tejido. \r\n"
+				+ "Intentas coger el espejo, pero una especie de campo de fuerza impide que puedas cogerlo. \r\n"
+				+ "Ves como en el marco del receptaculo esta escrito “El espejo de la verdad se revelara cuando la luz y la oscuridad de las hermanas se muestren delante suya.”"); entrat = true;}		
 	System.out.println("Las antorchas estan encendidas de esta forma:");
 	
 	for (int i = 0; i < antorchas.length; i++) {
@@ -54,15 +58,16 @@ public class cueva_espejo extends zona {
 	System.out.println();
 	
 	if (puzle_resuelto==false && antorchas[0] == true && antorchas[1] == true && antorchas[2] == false && antorchas[3] == true && antorchas[4] == false && antorchas[5] == true && antorchas[6] == false) 
-	{System.out.println("Tras poner todas las antorchas en la secuencia correcta, ves como  un destello sale del espejo, deslumbrandote. Al acercarte, te das cuenta que la barrera que lo protegia ha desaparecido, dejando el espejo listo para que lo cojas.");
+	{System.out.println("Tras poner todas las antorchas en la secuencia correcta, ves como  un destello sale del espejo, deslumbrandote. \r\n"
+			+ "Al acercarte, te das cuenta que la barrera que lo protegia ha desaparecido, dejando el espejo listo para que lo cojas.");
 	objecte espejo = new objecte(2, "Espejo Encantado", true);
 	puzle_resuelto=true;
 	items_terra.add(espejo); //[X][X][ ][X][ ][X][ ]
 	}
 	
 	if (puzle_resuelto==false && antorchas[0] == false && antorchas[1] == true && antorchas[2] == false && antorchas[3] == true && antorchas[4] == false && antorchas[5] == true && antorchas[6] == true) 
-	{System.out.println("Tras poner todas las antorchas en la secuencia correcta, ves como  un destello sale del espejo, deslumbrandote. Al acercarte, te das cuenta que la barrera que lo protegia ha desaparecido, dejando el espejo listo para que lo cojas.");
-	objecte espejo = new objecte(2, "Espejo Encantado", true);
+	{System.out.println("Tras poner todas las antorchas en la secuencia correcta, ves como  un destello sale del espejo, deslumbrandote. \r\n"
+			+ "Al acercarte, te das cuenta que la barrera que lo protegia ha desaparecido, dejando el espejo listo para que lo cojas.");	objecte espejo = new objecte(2, "Espejo Encantado", true);
 	puzle_resuelto=true;
 	items_terra.add(espejo); //[ ][X][ ][X][ ][X][X]
 	}
